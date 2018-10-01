@@ -1,0 +1,30 @@
+{
+  "name": "world-economies-dashboard",
+  "version": "1.0.0",
+  "description": "World Economies Dashboard MEAN Web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asims18/world-economies-dashboard.git"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "angular",
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Asim Siddiqui, Kelley Hoang, Nancy Xie, Ira Mascardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asims18/world-economies-dashboard/issues"
+  },
+  "homepage": "https://github.com/asims18/world-economies-dashboard#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
