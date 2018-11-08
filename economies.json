@@ -1,9 +1,190 @@
 {
-    "YEAR1": {
-        "CATEGORY": {
-            "COUNTRY": {
-                
-            }
+    "YEARS": [
+        {
+            "Year" : "2017",
+            "CATEGORIES" : [
+                {
+                    "Category" : "G7",
+                    "COUNTRIES" : [
+                        {
+                            "name" : "USA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "CANADA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "JAPAN",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        }
+                    ]
+                },
+                {
+                    "Category" : "BRIC",
+                    "COUNTRIES" : [
+                        {
+                            "name" : "BRAZIL",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "RUSSIA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "INDIA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Year" : "2018",
+            "CATEGORIES" : [
+                {
+                    "Category" : "G7",
+                    "COUNTRIES" : [
+                        {
+                            "name" : "USA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "CANADA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "JAPAN",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        }
+                    ]
+                },
+                {
+                    "Category" : "BRIC",
+                    "COUNTRIES" : [
+                        {
+                            "name" : "BRAZIL",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "RUSSIA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        },
+                        {
+                            "name" : "INDIA",
+                            "nominalGDP": "1",
+                            "realGDP": "1",
+                            "realGDPGrowth": "1",
+                            "gdpPpp": "1",
+                            "population": "1",
+                            "populationGrowth": "1",
+                            "consumerSpending": "1",
+                            "easeOfDoingBusiness": "1",
+                            "unemployment": "1",
+                            "retailSalesGrowth": "1"
+                        }
+                    ]
+                }
+            ]
         }
-    }
+    ]
 }

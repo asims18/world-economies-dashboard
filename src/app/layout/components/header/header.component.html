@@ -8,6 +8,25 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Search' | translate }}" >
         </form>
+        <!-- Added a new upload button-->
+        <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+        
+        
+
+        <!-- Using Nng2-->
+        <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+        <!-- <button type="button" class="btn btn-success btn-s" 
+        (click)="uploader.uploadAll()" 
+        [disabled]="!uploader.getNotUploadedItems().length" >
+            Upload an Image
+        </button> -->
+        <!-- End using Nng2-->
+
+        <!-- Using function-->
+        <input id="photo" type="file" />
+        <button type="button" class="btn btn-success btn-s" (click)="upload()">Upload an Image</button>
+        <!-- End using function-->
+        
         <ul class="navbar-nav ml-auto">
             <!-- <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
