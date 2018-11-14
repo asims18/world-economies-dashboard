@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import * as JSZip from 'jszip';
+import { saveAs } from 'file-saver';
+import domtoimage from 'dom-to-image';
 
 @Component({
     selector: 'app-charts',
@@ -156,6 +159,32 @@ export class ChartsComponent implements OnInit {
          * so one way around it, is to clone the data, change it and then
          * assign it;
          */
+    }
+
+    public downloadAll(event): boolean {
+        event.preventDefault();
+        var zip = new JSZip();
+
+        var fldr = zip.folder("Dashboard-Charts");
+
+        var length = document.getElementsByTagName('canvas').length;
+
+        for (var i = 0; i < length; i++) {
+            try {throw i}
+            catch (ii) {
+                let x = document.getElementsByTagName('canvas')[ii];
+                x.toBlob(function(blobpng) {
+                    fldr.file("chart-image" + ii + ".png", blobpng, {base64: true});
+                    if (ii == length-1) {
+                        zip.generateAsync({type: "blob"}).then(blob => {
+                            saveAs(blob, "Dashboard-Charts.zip");
+                        });
+                    }
+                }, "image/png", 0.75);
+            }
+        } 
+
+        return false;
     }
 
     constructor() {}
