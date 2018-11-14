@@ -1,5 +1,76 @@
+
 <div [@routerTransition]>
     <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="row">
+        <input type="file"  value="Browse" class="btn form-control-file .col-lg-3 .col-md-3 " id="exampleFormControlFile1">
+        <button class="btn btn-outline-primary .col-lg-3 .col-md-3 " (click)=onUpload()>Upload</button>
+        
+        
+        <label for="sel1">Year:</label>
+        <div class="form-group">
+            
+
+                <select class="form-control" id="sel1" > 
+                        <option *ngFor="let yr of years" >{{yr}}</option>
+                </select>
+                
+            
+              
+            </div>
+              <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary .col-lg-3 .col-md-3" data-toggle="modal" (click)="onOpen()">
+        Filter
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p class="modal-title"> hello</p>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <div><p>{{name}}</p></div>
+                    <div><p>{{types[0].category}}</p></div>
+                    <div></div>
+                            
+                            <h5 >
+                                <input type="checkbox" id="country" [(ngModel)] = "selects" [ngModelOptions]="{standalone: true}" (change)="selectAll($event);">{{types[0].category}}<br>
+                            </h5>
+                            <div fxLayout="row"><div *ngFor="let country of types[0].countries" >
+                                <input type="checkbox" [(ngModel)]="country.selected">{{country.country}} 
+                            </div>
+                            </div>
+                            
+                            
+                            <br>
+                            
+                            
+                            <h5>
+                                    <input type="checkbox" id="country" [(ngModel)] = "selects" (change)="selectAll($event);">{{types[1].category}}<br>
+                                </h5>
+                                <div fxLayout="row"><div *ngFor="let country of types[1].countries" >
+                                    <input type="checkbox" [(ngModel)]="country.selected">{{country.country}} 
+                                </div>
+                                </div>
+                                <br>
+                    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="onClose()" >Close</button>
+              <button type="button" class="btn btn-primary">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+              
+    </div>
+    
+    
+    
     <div class="row">
         <div class="col col-sm-6">
             <div class="card mb-3">
@@ -10,9 +81,7 @@
                     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
-                </div>
+                
             </div>
         </div>
         <div class="col col-sm-6">
@@ -75,4 +144,28 @@
             </div>
         </div>
     </div>
+    <div class="row">
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Radar Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Pie Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>

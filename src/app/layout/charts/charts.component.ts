@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { HttpClient } from '@angular/common/http';
+import { ChartsService } from './charts.service';
+
+function getNum(value:string) : number{
+    for(var i = 0; i < this.types.length; i++){
+        if(this.types.category == value){
+            return i;
+        }
+    }
+  }
 
 @Component({
     selector: 'app-charts',
@@ -8,6 +18,89 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class ChartsComponent implements OnInit {
+    display = 'none';
+    types: any;
+    selects: any;
+    country: any;
+    vals: string;
+    name: any;
+    testing: any;
+    public years:any;
+    
+  
+    
+    selectAll(event) {
+        console.log(event);
+        console.log(event.target.nextSibling.nodeValue);
+        for (var i = 0; i < this.types[0].countries.length; i++) {
+            
+            if( this.types[i].category == event.target.nextSibling.nodeValue){
+                var nums = i;
+                break;
+            }
+        }
+        debugger;
+        this.types[nums].selected = this.selects;
+        for (var i = 0; i < this.types[nums].countries.length; i++) {
+            this.types[nums].countries[i].selected = this.selects;
+          }
+        
+          
+        
+      }
+    
+      
+    public onOpen(){
+        this.display="block";
+    }
+    public onClose(){
+        this.display="none";
+    }
+    selectedFile: File = null;
+    constructor(private http: HttpClient, private _charts :ChartsService){
+        this.name = "Hello";
+        this.types = [
+            {
+                category: 'G7',
+                selected: false,
+                countries: [
+                    {country:'USA', selected: false},
+                    {country:'Canada', selected: false},
+                    {country:'Japan', selected: false},
+                    {country:'France', selected: false},
+                    {country:'Italy', selected: false},
+                    {country:'UK', selected: false}]
+            },
+            {
+                category: 'BRIC',
+                selected: false,
+                countries: [{country:'Brazil', selected: false},
+                {country:'Russia', selected: false},
+                {country:'India', selected: false},
+                {country:'China', selected: false}]
+            }/*,
+            {
+                category: 'MIST',
+                countries: ['Mexico','Indonesia','South Korea','Turkey']
+            },
+            {
+                category: 'Tier 4',
+                countries: ['Singapore','Hong Kong','South Africa','Saudi Arabia','Nigeria']
+            }  */
+        ]
+        
+    }
+    public FileSelected(event){
+        console.log(event);
+        this.selectedFile = event.target.files[0];
+    }
+    public onUpload(){
+        const fd = new FormData();
+        fd.append('image', this.selectedFile, this.selectedFile.name);
+    //rest API endpoint call 
+        //this.http.post('',fd).subscribe(res => 
+        //{console.log(res)}) 
+    }
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -157,8 +250,29 @@ export class ChartsComponent implements OnInit {
          * assign it;
          */
     }
+    /*public filterForeCasts(filterVal: any) {
+        if (filterVal == "0")
+            this.forecasts = this.cacheForecasts;
+        else
+        this.forecasts = this.cacheForecasts.filter((item) => item.summary == filterVal);
+    }
+} */
 
-    constructor() {}
+    ngOnInit() {
+        this._charts.chartsInfo().subscribe(res => { 
+         //let temp_max = res['list'].map(res => res.main.temp_max);
+          let allYears = res['YEARS'].map(res => res.Year);
+          let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
+          let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
+          console.log(allCountries)
+          //console.log(temp_max)
+          console.log(res)
+          this.years = allYears;
+          
+    })
+    
+    
+}
 
-    ngOnInit() {}
+    
 }
