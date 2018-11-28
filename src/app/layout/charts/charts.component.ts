@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { HttpClient } from '@angular/common/http';
 import { ChartsService } from './charts.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import 'rxjs/add/operator/map';
 
-function getNum(value:string) : number{
-    for(var i = 0; i < this.types.length; i++){
-        if(this.types.category == value){
-            return i;
-        }
-    }
-  }
+
 
 @Component({
     selector: 'app-charts',
@@ -25,13 +21,17 @@ export class ChartsComponent implements OnInit {
     vals: string;
     name: any;
     testing: any;
-    public years:any;
+    public years:any [];
+    public countries:any [];
+    
     
   
     
     selectAll(event) {
+        this.selects = !this.selects
         console.log(event);
         console.log(event.target.nextSibling.nodeValue);
+
         for (var i = 0; i < this.types[0].countries.length; i++) {
             
             if( this.types[i].category == event.target.nextSibling.nodeValue){
@@ -39,17 +39,26 @@ export class ChartsComponent implements OnInit {
                 break;
             }
         }
-        debugger;
+        
         this.types[nums].selected = this.selects;
+        console.log(this.types[nums].selected );
         for (var i = 0; i < this.types[nums].countries.length; i++) {
-            this.types[nums].countries[i].selected = this.selects;
+            this.types[nums].countries[i].selected = this.types[nums].selected;
+            console.log(this.types[nums].countries[i].selected)
           }
+          //console.log(this.gdpPieChartLabels);
         
           
         
       }
     
-      
+    public anotherTest(testarr: string []): string []{ 
+        var testing = [];
+
+        testing.push("hello");
+        //console.log(testing);
+        //console.log(testarr);
+        return testing;}
     public onOpen(){
         this.display="block";
     }
@@ -58,6 +67,8 @@ export class ChartsComponent implements OnInit {
     }
     selectedFile: File = null;
     constructor(private http: HttpClient, private _charts :ChartsService){
+        this.gdpPieChartLabels = this.countries;
+        console.log(this.countries);
         this.name = "Hello";
         this.types = [
             {
@@ -89,6 +100,7 @@ export class ChartsComponent implements OnInit {
             }  */
         ]
         
+        
     }
     public FileSelected(event){
         console.log(event);
@@ -101,7 +113,9 @@ export class ChartsComponent implements OnInit {
         //this.http.post('',fd).subscribe(res => 
         //{console.log(res)}) 
     }
-    // bar chart
+    
+
+    // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
@@ -122,53 +136,24 @@ export class ChartsComponent implements OnInit {
         { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
         { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
     ];
-
-    // Doughnut
-    public doughnutChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail-Order Sales'
-    ];
-    public doughnutChartData: number[] = [350, 450, 100];
-    public doughnutChartType: string = 'doughnut';
-
-    // Radar
-    public radarChartLabels: string[] = [
-        'Eating',
-        'Drinking',
-        'Sleeping',
-        'Designing',
-        'Coding',
-        'Cycling',
-        'Running'
-    ];
-    public radarChartData: any = [
-        { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
-        { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' }
-    ];
-    public radarChartType: string = 'radar';
-
+    //pieGDP
+    public gdpPieChartLabels: string[] ;
+    public gdppieChartData: string[] ;
+    
+    //public gdpPieChartLabels: string [];
+     
+      //public gdpPieChartLabels  =  this.countries.map(x => x);
+   
     // Pie
     public pieChartLabels: string[] = [
         'Download Sales',
         'In-Store Sales',
         'Mail Sales'
     ];
-    public pieChartData: number[] = [300, 500, 100];
+    
+    public pieChartData: number[] = [300, 500, 100,300, 500, 100];
+    public te = this.pieChartData.map(x => x);
     public pieChartType: string = 'pie';
-
-    // PolarArea
-    public polarAreaChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail Sales',
-        'Telesales',
-        'Corporate Sales'
-    ];
-    public polarAreaChartData: number[] = [300, 500, 100, 40, 120];
-    public polarAreaLegend: boolean = true;
-
-    public polarAreaChartType: string = 'polarArea';
 
     // lineChart
     public lineChartData: Array<any> = [
@@ -186,35 +171,40 @@ export class ChartsComponent implements OnInit {
         'July'
     ];
     public lineChartOptions: any = {
-        responsive: true
+        responsive: true,
+
     };
     public lineChartColors: Array<any> = [
         {
             // grey
-            backgroundColor: 'rgba(148,159,177,0.2)',
+            //backgroundColor: 'rgba(148,159,177,0.2)',
             borderColor: 'rgba(148,159,177,1)',
             pointBackgroundColor: 'rgba(148,159,177,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+            pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+            fill: false
+            
         },
         {
             // dark grey
-            backgroundColor: 'rgba(77,83,96,0.2)',
+            //backgroundColor: 'rgba(77,83,96,0.2)',
             borderColor: 'rgba(77,83,96,1)',
             pointBackgroundColor: 'rgba(77,83,96,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(77,83,96,1)'
+            pointHoverBorderColor: 'rgba(77,83,96,1)',
+            fill: false
         },
         {
             // grey
-            backgroundColor: 'rgba(148,159,177,0.2)',
+            //backgroundColor: 'rgba(148,159,177,0.2)',
             borderColor: 'rgba(148,159,177,1)',
             pointBackgroundColor: 'rgba(148,159,177,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+            pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+            fill: false
         }
     ];
     public lineChartLegend: boolean = true;
@@ -250,29 +240,56 @@ export class ChartsComponent implements OnInit {
          * assign it;
          */
     }
-    /*public filterForeCasts(filterVal: any) {
-        if (filterVal == "0")
+    /*public filterForeCasts(filteredData: any) {
+        if (filteredData == "0")
             this.forecasts = this.cacheForecasts;
         else
-        this.forecasts = this.cacheForecasts.filter((item) => item.summary == filterVal);
+        this.forecasts = this.cacheForecasts.filter((item) => item.summary == filteredData);
     }
 } */
+public test(enter: string []): void { this.countries = enter;}
 
     ngOnInit() {
+        this.selects=false
         this._charts.chartsInfo().subscribe(res => { 
          //let temp_max = res['list'].map(res => res.main.temp_max);
           let allYears = res['YEARS'].map(res => res.Year);
           let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
           let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
+          let allGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDP)));
           console.log(allCountries)
           //console.log(temp_max)
           console.log(res)
           this.years = allYears;
           
+          var k =0;
+          var arr_count:string[] = new Array(6) ;
+          //debugger;
+        for(var i = 0; i < allCountries[0].length; i++){
+            for(var j = 0; j < allCountries[0][i].length; j++){
+                arr_count[k]= allCountries[0][i][j];
+                k++;
+            }       
+        }
+        //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
+        this.countries = arr_count;
+          //this.gdpPieChartLabels = this.countries;
+          console.log(this.countries);
+          
     })
-    
-    
+    console.log(this.countries);
+       
+}
+public retrieveCountry (): string []{
+    //console.log(this.countries);
+    return this.countries;
 }
 
     
+}
+
+interface filteredData {
+    countries: string[];
+    category: string[];
+    year: string;
 }
