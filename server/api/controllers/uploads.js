@@ -43,10 +43,19 @@ exports.uploads_get_all = (req, res, next) => {
 // POST a single upload
 exports.uploads_create_upload = (req, res, next) => {
     // console.log('Posting!!!!!');
+    console.log('Next Request:')
+    console.log(req);
+    if (req.file.path){
+        path = req.file.path
+    }
+    else{
+        path = req.file.name
+    }
     const upload = new Upload({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
-        csv: req.file.path
+        csv: path
+        // csv: req.path
         // csv: req.file.path
     });
     upload

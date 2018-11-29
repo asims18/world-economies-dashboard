@@ -6,6 +6,9 @@ const morgan = require('morgan');             // log requests to the console (ex
 const bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 const cors = require('cors');                 // hands Cross Origin Requests
 const uploadRoutes = require('../server/api/routes/uploads');
+const fileRoutes = require('../server/api/routes/files');
+
+const fs = require('fs'); // For file system operations
 // =========================================== Dependencies =========================================================
 // =========================================== Middleware ===========================================================
 app.use(cors());
@@ -28,6 +31,12 @@ mongoose.connect(
 // =========================================== Routes ===============================================================
 // Middleware that filters requests send to handler
 app.use('/uploads', uploadRoutes);
+app.use('/files', fileRoutes);
+
+
+
+// convert_to_json();
+
 // 
 // app.use(express.static(path.join(__dirname, 'dist')));
 // =========================================== Routes ===============================================================

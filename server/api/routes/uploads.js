@@ -11,7 +11,8 @@ const storage = multer.diskStorage({
     filename: function(req, file, cb) {
         currentDate = new Date();
         
-        cb(null, currentDate.getMonth() + '-' + currentDate.getDate() + '-' +  currentDate.getFullYear() + '-' + file.originalname );
+        // cb(null, currentDate.getMonth() + '-' + currentDate.getDate() + '-' +  currentDate.getFullYear() + '-' + file.originalname );
+        cb(null, file.originalname );
     }
 });
 
