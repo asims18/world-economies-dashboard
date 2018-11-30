@@ -21,8 +21,32 @@ const storage = multer.diskStorage({
         cb(null, file.originalname );
     }
 });
+// Filters a file if it is not a csv
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'text/csv') {
+        cb(null, true);
+    }
+    else {
+        cb(null, false);
+    }
 
-// Creates
+};
+// Creates an upload handler
+// var upload = multer({
+//     storage: storage,
+//     fileFilter: fileFilter
+// }).single('csv');
+// var upload = multer({
+//     storage: storage,
+//     fileFilter: (req, file, callback) => {
+//         var ext = path.extname(file.originalname);
+//         if(ext !== '.csv' && ext !== '.json' && ext !== '.gif' && ext !== '.jpeg') {
+//             return callback(new Error('Only images are allowed'))
+//         }
+//         callback(null, true)
+//     },
+// }).single('csv');
 var upload = multer({storage: storage}).single('csv');
 // Function to write to a file
 // Returns a promise
@@ -85,6 +109,8 @@ function csv_to_json(filename){
             let current_easeofdoingbusiness = comma_split[11];
             let current_unemployment = comma_split[12];
             let current_retailsalesgrowth = comma_split[13];
+            // Calculate standard of living
+            let current_standardofliving = (current_gdpppp/current_population).toString();
     
             // Creating objects to add to json result object
             let current_year_object = {
@@ -107,7 +133,8 @@ function csv_to_json(filename){
                 consumerSpending: current_consumerspending,
                 easeOfDoingBusiness: current_easeofdoingbusiness,
                 unemployment: current_unemployment,
-                retailSalesGrowth: current_retailsalesgrowth
+                retailSalesGrowth: current_retailsalesgrowth,
+                standardOfLiving: current_standardofliving
             }
     
             // Sees if the current year exists within the year array

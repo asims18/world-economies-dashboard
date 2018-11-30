@@ -18,7 +18,8 @@
 							"consumerSpending": "0.657",
 							"easeOfDoingBusiness": "6",
 							"unemployment": "0.043",
-							"retailSalesGrowth": "0.047"
+							"retailSalesGrowth": "0.047",
+							"standardOfLiving": "59509.20245398773"
 						},
 						{
 							"name": "Canada",
@@ -32,7 +33,8 @@
 							"consumerSpending": "0.583",
 							"easeOfDoingBusiness": "18",
 							"unemployment": "0.063",
-							"retailSalesGrowth": "0.066"
+							"retailSalesGrowth": "0.066",
+							"standardOfLiving": "48648.64864864865"
 						},
 						{
 							"name": "Japan",
@@ -46,7 +48,8 @@
 							"consumerSpending": "0.558",
 							"easeOfDoingBusiness": "34",
 							"unemployment": "0.028",
-							"retailSalesGrowth": "0.005"
+							"retailSalesGrowth": "0.005",
+							"standardOfLiving": "42519.68503937008"
 						},
 						{
 							"name": "France",
@@ -60,7 +63,8 @@
 							"consumerSpending": "0.553",
 							"easeOfDoingBusiness": "31",
 							"unemployment": "0.094",
-							"retailSalesGrowth": "0.039"
+							"retailSalesGrowth": "0.039",
+							"standardOfLiving": "43076.92307692308"
 						},
 						{
 							"name": "Germany",
@@ -74,7 +78,8 @@
 							"consumerSpending": "0.533",
 							"easeOfDoingBusiness": "20",
 							"unemployment": "0.038",
-							"retailSalesGrowth": "0.03"
+							"retailSalesGrowth": "0.03",
+							"standardOfLiving": "49397.590361445786"
 						},
 						{
 							"name": "Italy",
@@ -88,7 +93,8 @@
 							"consumerSpending": "0.608",
 							"easeOfDoingBusiness": "46",
 							"unemployment": "0.112",
-							"retailSalesGrowth": "0.013"
+							"retailSalesGrowth": "0.013",
+							"standardOfLiving": "38983.05084745763"
 						},
 						{
 							"name": "UK",
@@ -102,7 +108,8 @@
 							"consumerSpending": "0.664",
 							"easeOfDoingBusiness": "7",
 							"unemployment": "0.043",
-							"retailSalesGrowth": "0.018"
+							"retailSalesGrowth": "0.018",
+							"standardOfLiving": "43939.393939393936"
 						}
 					]
 				},
@@ -121,7 +128,8 @@
 							"consumerSpending": "0.64",
 							"easeOfDoingBusiness": "125",
 							"unemployment": "0.131",
-							"retailSalesGrowth": "-0.001"
+							"retailSalesGrowth": "-0.001",
+							"standardOfLiving": "15384.615384615385"
 						},
 						{
 							"name": "Russia",
@@ -135,7 +143,8 @@
 							"consumerSpending": "0.534",
 							"easeOfDoingBusiness": "35",
 							"unemployment": "0.055",
-							"retailSalesGrowth": "-0.002"
+							"retailSalesGrowth": "-0.002",
+							"standardOfLiving": "26530.61224489796"
 						},
 						{
 							"name": "India",
@@ -149,7 +158,8 @@
 							"consumerSpending": "0.594",
 							"easeOfDoingBusiness": "100",
 							"unemployment": "0.038",
-							"retailSalesGrowth": "0.066"
+							"retailSalesGrowth": "0.066",
+							"standardOfLiving": "7094.846900672143"
 						},
 						{
 							"name": "China",
@@ -163,7 +173,8 @@
 							"consumerSpending": "0.39",
 							"easeOfDoingBusiness": "78",
 							"unemployment": "0.04",
-							"retailSalesGrowth": "0.104"
+							"retailSalesGrowth": "0.104",
+							"standardOfLiving": "16690.64748201439"
 						}
 					]
 				},
@@ -182,7 +193,8 @@
 							"consumerSpending": "0.663",
 							"easeOfDoingBusiness": "49",
 							"unemployment": "0.033",
-							"retailSalesGrowth": "0.011"
+							"retailSalesGrowth": "0.011",
+							"standardOfLiving": "18604.6511627907"
 						},
 						{
 							"name": "Indonesia",
@@ -196,7 +208,8 @@
 							"consumerSpending": "0.555",
 							"easeOfDoingBusiness": "72",
 							"unemployment": "0.055",
-							"retailSalesGrowth": "0.029"
+							"retailSalesGrowth": "0.029",
+							"standardOfLiving": "12595.419847328245"
 						},
 						{
 							"name": "South Korea",
@@ -210,7 +223,8 @@
 							"consumerSpending": "0.488",
 							"easeOfDoingBusiness": "4",
 							"unemployment": "0.037",
-							"retailSalesGrowth": "0.025"
+							"retailSalesGrowth": "0.025",
+							"standardOfLiving": "39215.686274509804"
 						},
 						{
 							"name": "Turkey",
@@ -224,7 +238,8 @@
 							"consumerSpending": "0.598",
 							"easeOfDoingBusiness": "60",
 							"unemployment": "0.109",
-							"retailSalesGrowth": "0.054"
+							"retailSalesGrowth": "0.054",
+							"standardOfLiving": "25925.925925925927"
 						}
 					]
 				},
@@ -243,7 +258,8 @@
 							"consumerSpending": "0.375",
 							"easeOfDoingBusiness": "2",
 							"unemployment": "0.022",
-							"retailSalesGrowth": "0.023"
+							"retailSalesGrowth": "0.023",
+							"standardOfLiving": "83333.33333333333"
 						},
 						{
 							"name": "Hong Kong",
@@ -257,7 +273,8 @@
 							"consumerSpending": "0.662",
 							"easeOfDoingBusiness": "5",
 							"unemployment": "0.031",
-							"retailSalesGrowth": "0.032"
+							"retailSalesGrowth": "0.032",
+							"standardOfLiving": "57142.857142857145"
 						},
 						{
 							"name": "Australia",
@@ -271,7 +288,8 @@
 							"consumerSpending": "0.578",
 							"easeOfDoingBusiness": "14",
 							"unemployment": "0.056",
-							"retailSalesGrowth": "0.025"
+							"retailSalesGrowth": "0.025",
+							"standardOfLiving": "54166.666666666664"
 						},
 						{
 							"name": "South Africa",
@@ -285,7 +303,8 @@
 							"consumerSpending": "0.599",
 							"easeOfDoingBusiness": "82",
 							"unemployment": "0.274",
-							"retailSalesGrowth": "0.075"
+							"retailSalesGrowth": "0.075",
+							"standardOfLiving": "14035.087719298246"
 						},
 						{
 							"name": "Nigeria",
@@ -299,7 +318,8 @@
 							"consumerSpending": "0.784",
 							"easeOfDoingBusiness": "145",
 							"unemployment": "0.11",
-							"retailSalesGrowth": "-0.128"
+							"retailSalesGrowth": "-0.128",
+							"standardOfLiving": "5759.162303664922"
 						},
 						{
 							"name": "Saudi Arabia",
@@ -313,7 +333,8 @@
 							"consumerSpending": "0.427",
 							"easeOfDoingBusiness": "92",
 							"unemployment": "0.056",
-							"retailSalesGrowth": "0.075"
+							"retailSalesGrowth": "0.075",
+							"standardOfLiving": "54545.454545454544"
 						}
 					]
 				}
@@ -337,7 +358,8 @@
 							"consumerSpending": "0.657",
 							"easeOfDoingBusiness": "12",
 							"unemployment": "0.043",
-							"retailSalesGrowth": "0.047"
+							"retailSalesGrowth": "0.047",
+							"standardOfLiving": "60702.77672955975"
 						},
 						{
 							"name": "Canada",
@@ -351,7 +373,8 @@
 							"consumerSpending": "0.583",
 							"easeOfDoingBusiness": "22",
 							"unemployment": "0.063",
-							"retailSalesGrowth": "0.066"
+							"retailSalesGrowth": "0.066",
+							"standardOfLiving": "49751.25"
 						},
 						{
 							"name": "Japan",
@@ -365,7 +388,8 @@
 							"consumerSpending": "0.559",
 							"easeOfDoingBusiness": "31",
 							"unemployment": "0.028",
-							"retailSalesGrowth": "0.006"
+							"retailSalesGrowth": "0.006",
+							"standardOfLiving": "42772.28"
 						},
 						{
 							"name": "France",
@@ -379,7 +403,8 @@
 							"consumerSpending": "0.553",
 							"easeOfDoingBusiness": "25",
 							"unemployment": "0.094",
-							"retailSalesGrowth": "0.04"
+							"retailSalesGrowth": "0.04",
+							"standardOfLiving": "70387.13461538461"
 						},
 						{
 							"name": "Germany",
@@ -393,7 +418,8 @@
 							"consumerSpending": "0.533",
 							"easeOfDoingBusiness": "22",
 							"unemployment": "0.038",
-							"retailSalesGrowth": "0.03"
+							"retailSalesGrowth": "0.03",
+							"standardOfLiving": "52242.6125"
 						},
 						{
 							"name": "Italy",
@@ -407,7 +433,8 @@
 							"consumerSpending": "0.608",
 							"easeOfDoingBusiness": "51",
 							"unemployment": "0.112",
-							"retailSalesGrowth": "0.013"
+							"retailSalesGrowth": "0.013",
+							"standardOfLiving": "38597.08474576271"
 						},
 						{
 							"name": "UK",
@@ -421,7 +448,8 @@
 							"consumerSpending": "0.665",
 							"easeOfDoingBusiness": "14",
 							"unemployment": "0.043",
-							"retailSalesGrowth": "0.018"
+							"retailSalesGrowth": "0.018",
+							"standardOfLiving": "43677.333333333336"
 						}
 					]
 				},
@@ -440,7 +468,8 @@
 							"consumerSpending": "0.64",
 							"easeOfDoingBusiness": "128",
 							"unemployment": "0.131",
-							"retailSalesGrowth": "-0.001"
+							"retailSalesGrowth": "-0.001",
+							"standardOfLiving": "16443.99"
 						},
 						{
 							"name": "Russia",
@@ -454,7 +483,8 @@
 							"consumerSpending": "0.534",
 							"easeOfDoingBusiness": "39",
 							"unemployment": "0.055",
-							"retailSalesGrowth": "-0.002"
+							"retailSalesGrowth": "-0.002",
+							"standardOfLiving": "26421.69178082192"
 						},
 						{
 							"name": "India",
@@ -468,7 +498,8 @@
 							"consumerSpending": "0.595",
 							"easeOfDoingBusiness": "102",
 							"unemployment": "0.038",
-							"retailSalesGrowth": "0.066"
+							"retailSalesGrowth": "0.066",
+							"standardOfLiving": "6447.540500736377"
 						},
 						{
 							"name": "China",
@@ -482,7 +513,8 @@
 							"consumerSpending": "0.391",
 							"easeOfDoingBusiness": "80",
 							"unemployment": "0.04",
-							"retailSalesGrowth": "0.104"
+							"retailSalesGrowth": "0.104",
+							"standardOfLiving": "16083.233528550512"
 						}
 					]
 				},
@@ -501,7 +533,8 @@
 							"consumerSpending": "0.663",
 							"easeOfDoingBusiness": "50",
 							"unemployment": "0.033",
-							"retailSalesGrowth": "0.012"
+							"retailSalesGrowth": "0.012",
+							"standardOfLiving": "18436.578125"
 						},
 						{
 							"name": "Indonesia",
@@ -515,7 +548,8 @@
 							"consumerSpending": "0.556",
 							"easeOfDoingBusiness": "77",
 							"unemployment": "0.055",
-							"retailSalesGrowth": "0.029"
+							"retailSalesGrowth": "0.029",
+							"standardOfLiving": "12613.23137254902"
 						},
 						{
 							"name": "South Korea",
@@ -529,7 +563,8 @@
 							"consumerSpending": "0.489",
 							"easeOfDoingBusiness": "-1",
 							"unemployment": "0.037",
-							"retailSalesGrowth": "0.025"
+							"retailSalesGrowth": "0.025",
+							"standardOfLiving": "39486.68"
 						},
 						{
 							"name": "Turkey",
@@ -543,7 +578,8 @@
 							"consumerSpending": "0.598",
 							"easeOfDoingBusiness": "60",
 							"unemployment": "0.109",
-							"retailSalesGrowth": "0.055"
+							"retailSalesGrowth": "0.055",
+							"standardOfLiving": "24952.475"
 						}
 					]
 				},
@@ -562,7 +598,8 @@
 							"consumerSpending": "0.375",
 							"easeOfDoingBusiness": "2",
 							"unemployment": "0.022",
-							"retailSalesGrowth": "0.024"
+							"retailSalesGrowth": "0.024",
+							"standardOfLiving": "80437.5"
 						},
 						{
 							"name": "Hong Kong",
@@ -576,7 +613,8 @@
 							"consumerSpending": "0.662",
 							"easeOfDoingBusiness": "-2",
 							"unemployment": "0.031",
-							"retailSalesGrowth": "0.033"
+							"retailSalesGrowth": "0.033",
+							"standardOfLiving": "55210.42857142857"
 						},
 						{
 							"name": "Australia",
@@ -590,7 +628,8 @@
 							"consumerSpending": "0.578",
 							"easeOfDoingBusiness": "11",
 							"unemployment": "0.056",
-							"retailSalesGrowth": "0.025"
+							"retailSalesGrowth": "0.025",
+							"standardOfLiving": "57911.608695652176"
 						},
 						{
 							"name": "South Africa",
@@ -604,7 +643,8 @@
 							"consumerSpending": "0.6",
 							"easeOfDoingBusiness": "78",
 							"unemployment": "0.274",
-							"retailSalesGrowth": "0.075"
+							"retailSalesGrowth": "0.075",
+							"standardOfLiving": "13965.263157894737"
 						},
 						{
 							"name": "Nigeria",
@@ -618,7 +658,8 @@
 							"consumerSpending": "0.785",
 							"easeOfDoingBusiness": "141",
 							"unemployment": "0.11",
-							"retailSalesGrowth": "-0.128"
+							"retailSalesGrowth": "-0.128",
+							"standardOfLiving": "5818.5684210526315"
 						},
 						{
 							"name": "Saudi Arabia",
@@ -632,31 +673,8 @@
 							"consumerSpending": "0.427",
 							"easeOfDoingBusiness": "99",
 							"unemployment": "0.056",
-							"retailSalesGrowth": "0.075"
-						}
-					]
-				}
-			]
-		},
-		{
-			"Year": "2015",
-			"CATEGORIES": [
-				{
-					"Category": "G7",
-					"COUNTRIES": [
-						{
-							"name": "USA",
-							"nominalGDP": "19386200",
-							"realGDP": "19386200",
-							"nominalGDPGrowth": "0.023",
-							"realGDPGrowth": "0.023",
-							"gdpPpp": "19400000",
-							"population": "326",
-							"populationGrowth": "0.007",
-							"consumerSpending": "0.657",
-							"easeOfDoingBusiness": "6",
-							"unemployment": "0.043",
-							"retailSalesGrowth": "0.047"
+							"retailSalesGrowth": "0.075",
+							"standardOfLiving": "58229.8125"
 						}
 					]
 				}

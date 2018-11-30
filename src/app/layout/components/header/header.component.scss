@@ -18,8 +18,16 @@ $topnav-background-color: #222;
         }
         #upload-btn {
             margin-bottom: 0%;
-            margin-right: 1%;
+            // margin-right: 1%;
+            margin-right: 8px;
         }
+        .nav-item{
+            // Eliminate overlapping
+            .dropdown-menu-right{
+                top: 45px !important;
+            }
+        }
+        
         
     }
     .messages {
