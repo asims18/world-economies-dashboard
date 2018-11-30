@@ -8,8 +8,35 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Search' | translate }}" >
         </form>
+        <!-- Added a new upload button-->
+        <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+        
+        
+
+        <!-- Using Nng2-->
+        <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+        <!-- <button type="button" class="btn btn-success btn-s" 
+        (click)="uploader.uploadAll()" 
+        [disabled]="!uploader.getNotUploadedItems().length" >
+            Upload an Image
+        </button> -->
+        <!-- End using Nng2-->
+
+        <!-- Using function-->
+        <label for="csv" class="btn btn-info btn-s" id="why">
+            <i class="fa fa-cloud-upload"></i> Custom Upload
+        </label>
+        <!-- <label for="csv" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Custom Upload
+        </label> -->
+        <input id="csv" type="file" />
+        <!-- <button type="button" class="btn btn-success btn-s" (click)="readFileData()">Upload a File</button> -->
+        <button type="button" class="btn btn-success btn-s" (click)="upload()">Upload a File</button>
+        <button type="button" class="btn btn-success btn-s" (click)="upload()">Another Button</button>
+        <!-- End using function-->
+        
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown" ngbDropdown>
+            <!-- <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span>
                 </a>
@@ -59,7 +86,7 @@
                         {{ 'Simplified Chinese' | translate }}
                     </a>
                 </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user"></i> John Smith <b class="caret"></b>

@@ -4,6 +4,7 @@ $topnav-background-color: #222;
         background-color: $topnav-background-color;
         .navbar-brand {
             color: #fff;
+            
         }
         .nav-item > a {
             color: #999;
@@ -11,6 +12,29 @@ $topnav-background-color: #222;
                 color: #fff;
             }
         }
+        // .ugly{
+        //     background-color: #247648;
+        //     width: 50%;
+        // }
+        input[type="file"] {
+            display: none;
+            // display: block;
+        }
+        .why {
+            display: block !important;
+            .fa {
+                display: block !important;
+            }
+            // position: relative;
+            // bottom: 30px !important;
+        }
+        // .custom-file-upload {
+        //     border: 1px solid #ccc;
+        //     display: inline-block;
+        //     padding: 6px 12px;
+        //     cursor: pointer;
+        // }
+        
     }
     .messages {
         width: 300px;
