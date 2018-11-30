@@ -637,6 +637,30 @@
 					]
 				}
 			]
+		},
+		{
+			"Year": "2015",
+			"CATEGORIES": [
+				{
+					"Category": "G7",
+					"COUNTRIES": [
+						{
+							"name": "USA",
+							"nominalGDP": "19386200",
+							"realGDP": "19386200",
+							"nominalGDPGrowth": "0.023",
+							"realGDPGrowth": "0.023",
+							"gdpPpp": "19400000",
+							"population": "326",
+							"populationGrowth": "0.007",
+							"consumerSpending": "0.657",
+							"easeOfDoingBusiness": "6",
+							"unemployment": "0.043",
+							"retailSalesGrowth": "0.047"
+						}
+					]
+				}
+			]
 		}
 	]
 }

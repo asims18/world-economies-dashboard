@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {}
 
     onLoggedin() {
+        // Need to add authorization logic
         localStorage.setItem('isLoggedin', 'true');
     }
 }
