@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 
 
+
 @Component({
     selector: 'app-charts',
     templateUrl: './charts.component.html',
@@ -23,9 +24,40 @@ export class ChartsComponent implements OnInit {
     testing: any;
     public years:any [];
     public countries:any [];
+
+    public totGDP:any [];
+    public filtGDP:number [];
+    public defGDP: any[];
+
+    public totNomGDP:any [];
+    public filtNomGDP:number [];
+    public defNomGDP: any[];
     
-    
+    public totGDPppp:any [];
+    public filtGDPppp:number [];
+    public defGDPppp: any[];
   
+    public totPop:any [];
+    public filtPop:number [];
+    public defPop: any[];
+
+    public totstandOfLiving:any [];
+    public filtstandOfLiving:number [];
+    public defstandOfLiving: any[];
+
+    public totConSpend:any [];
+    public filtConSpend:number [];
+    public defConSpend: any[];
+
+    public totSigConsumSpend:any [];
+    public filtSigConsumSpend:number [];
+    public defSigConsumSpend: any[];
+
+    public totEaseofDoingBus:any [];
+    public filtEaseofDoingBus:number [];
+    public defEaseofDoingBus: any[];
+
+    
     
     selectAll(event) {
         this.selects = !this.selects
@@ -68,7 +100,7 @@ export class ChartsComponent implements OnInit {
     selectedFile: File = null;
     constructor(private http: HttpClient, private _charts :ChartsService){
         this.gdpPieChartLabels = this.countries;
-        console.log(this.countries);
+       
         this.name = "Hello";
         this.types = [
             {
@@ -151,8 +183,7 @@ export class ChartsComponent implements OnInit {
         'Mail Sales'
     ];
     
-    public pieChartData: number[] = [300, 500, 100,300, 500, 100];
-    public te = this.pieChartData.map(x => x);
+    public pieChartData: number[] = [2, 500, 100,300, 500, 100];
     public pieChartType: string = 'pie';
 
     // lineChart
@@ -240,28 +271,82 @@ export class ChartsComponent implements OnInit {
          * assign it;
          */
     }
-    /*public filterForeCasts(filteredData: any) {
-        if (filteredData == "0")
-            this.forecasts = this.cacheForecasts;
-        else
-        this.forecasts = this.cacheForecasts.filter((item) => item.summary == filteredData);
+    public filterForeCasts(filteredData: any) {
+       
+       console.log(filteredData);
+       var nums;
+       for(var i = 0; i < this.years.length; i++)
+       {
+           if(filteredData == this.years[i]){
+               nums = i;
+               break;
+           }
+       }
+       console.log(nums);
+       console.log(this.totConSpend[nums]);
+       this.translateArray(this.totEaseofDoingBus[nums])
+       this.filtGDP = this.translateArray(this.totGDP[nums]);
+       this.filtGDPppp = this.translateArray(this.totGDPppp[nums])
+       this.filtPop = this.translateArray(this.totPop[nums])
+       this.filtstandOfLiving = this.translateArray(this.totstandOfLiving[nums]);
+       this.filtConSpend = this.translateArray(this.totConSpend[nums]);
+       this.filtEaseofDoingBus = this.translateArray(this.totEaseofDoingBus[nums]);
+       console.log(this.filtGDP);
+       
+       
+       // this.filtGDP = this.totGDP.filter((item) => item.year == filteredData);
     }
-} */
-public test(enter: string []): void { this.countries = enter;}
+    public translateArray(array : any[]):any[]{ 
+        var retArr = [];
+        var k = 0;
+
+        for(var i = 0; i < array.length; i++){
+            for(var j = 0; j < array[i].length; j++){
+                retArr[k]= Number(array[i][j]);
+                k++;
+            }       
+        }
+        
+        return retArr;
+    }
+    public getStandofLiving(GDPppp: any[], pop: any[]): any []{ 
+        
+        
+       return pop;
+    }
+ 
+
+
 
     ngOnInit() {
         this.selects=false
+        //mapping object
         this._charts.chartsInfo().subscribe(res => { 
          //let temp_max = res['list'].map(res => res.main.temp_max);
           let allYears = res['YEARS'].map(res => res.Year);
           let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
           let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
+
           let allGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDP)));
-          console.log(allCountries)
-          //console.log(temp_max)
-          console.log(res)
-          this.years = allYears;
+          let allNomGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.nominalGDP)));
+          let allNomGDPppp = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.gdpPpp)));
+          let allStandofLiv = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.standardOfLiving)));
+          let allPop = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.population)));
+          let allConSpend = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.consumerSpending)));
+          let allEaseofDoBus = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.easeOfDoingBusiness)));
+
           
+          
+        //all the information for that one section in the JSON 
+          this.totGDP = allGDP;
+          this.totNomGDP = allNomGDP;
+          this.years = allYears;
+          this.totGDPppp = allNomGDPppp;
+          this.totEaseofDoingBus = allEaseofDoBus;
+          this.totPop = allPop;
+          this.totConSpend = allConSpend;
+          this.totstandOfLiving = allStandofLiv;
+    
           var k =0;
           var arr_count:string[] = new Array(6) ;
           //debugger;
@@ -273,23 +358,44 @@ public test(enter: string []): void { this.countries = enter;}
         }
         //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
         this.countries = arr_count;
+        
+        this.defGDP = this.translateArray(allGDP[0]);
+        this.filtGDP = this.defGDP;
+
+        this.defNomGDP = this.translateArray(allNomGDP[0]);
+        this.filtNomGDP = this.defGDP;
+
+        this.defGDPppp = this.translateArray(allNomGDPppp[0]);
+        this.filtGDPppp = this.defGDPppp;
+
+        //this.totstandOfLiving = this.getStandofLiving(this.totGDPppp, this.totPop);
+        this.defstandOfLiving = this.translateArray(this.totstandOfLiving[0]);
+        this.filtstandOfLiving = this.defstandOfLiving;
+
+        this.defPop = this.translateArray(allPop[0]);
+        this.filtPop = this.defPop;
+
+        this.defConSpend = this.translateArray(this.totConSpend[0]);
+        this.filtConSpend = this.defConSpend;
+
+        this.defEaseofDoingBus = this.translateArray(allEaseofDoBus[0]);
+        this.filtEaseofDoingBus = this.defEaseofDoingBus;
+
+        console.log(this.totstandOfLiving[1]);
           //this.gdpPieChartLabels = this.countries;
-          console.log(this.countries);
+          
           
     })
-    console.log(this.countries);
+          
+    
        
 }
-public retrieveCountry (): string []{
-    //console.log(this.countries);
-    return this.countries;
+public retrieveCountry (): number []{
+    
+    return this.filtGDP;
 }
 
     
 }
 
-interface filteredData {
-    countries: string[];
-    category: string[];
-    year: string;
-}
+
