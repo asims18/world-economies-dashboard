@@ -105,12 +105,14 @@ function csv_to_json(filename){
             let current_gdpppp = comma_split[7];
             let current_population = comma_split[8];
             let current_populationgrowth = comma_split[9];
-            let current_consumerspending = comma_split[10];
-            let current_easeofdoingbusiness = comma_split[11];
-            let current_unemployment = comma_split[12];
-            let current_retailsalesgrowth = comma_split[13];
+            let current_standardofliving = comma_split[10];
+            let current_consumerspending = comma_split[11];
+            let current_easeofdoingbusiness = comma_split[12];
+            let current_unemployment = comma_split[13];
+            let current_retailsalesgrowth = comma_split[14];
+            
             // Calculate standard of living
-            let current_standardofliving = (current_gdpppp/current_population).toString();
+            // let current_standardofliving = (current_gdpppp/current_population).toString();
     
             // Creating objects to add to json result object
             let current_year_object = {
@@ -130,11 +132,12 @@ function csv_to_json(filename){
                 gdpPpp: current_gdpppp,
                 population: current_population,
                 populationGrowth: current_populationgrowth,
+                standardOfLiving: current_standardofliving,
                 consumerSpending: current_consumerspending,
                 easeOfDoingBusiness: current_easeofdoingbusiness,
                 unemployment: current_unemployment,
                 retailSalesGrowth: current_retailsalesgrowth,
-                standardOfLiving: current_standardofliving
+                
             }
     
             // Sees if the current year exists within the year array
