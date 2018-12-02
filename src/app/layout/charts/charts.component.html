@@ -37,20 +37,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                        
-                                        
-                                        <br>
-                                        
-                                        
-                                        <h5>
-                                                <input type="checkbox" id="country" [(ngModel)] = "selects" (change)="selectAll($event);">{{types[1].category}}<br>
-                                            </h5>
-                                            <div fxLayout="row"><div *ngFor="let country of types[1].countries" >
-                                                <input type="checkbox" [(ngModel)]="country.selected">{{country.country}} 
-                                            </div>
-                                            </div>
-                                            <br>
                                 
                         </div>
                         <div class="modal-footer">
@@ -86,7 +72,7 @@
                         Real GDP
                     </div>
                     <div class="card-body" *ngIf = "filtGDP">
-                            <canvas baseChart height="180px" [data]="filtGDP" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            <canvas baseChart height="180px" [data]="sorted_gdps" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                                 </canvas>
                     </div>
                     
@@ -98,7 +84,7 @@
                         GDP PPP
                     </div>
                     <div class="card-body" *ngIf = "filtGDPppp">
-                            <canvas baseChart height="180px" [data]="filtGDPppp" [labels]="countries" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            <canvas baseChart height="180px" [data]="sorted_gdpppps" [labels]="countries_sorted_by_gdpppp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                                 </canvas>
                     </div>
                 </div>
@@ -112,7 +98,7 @@
                     Population
                 </div>
                 <div class="card-body" *ngIf = "filtPop">
-                        <canvas baseChart height="180px" [data]="filtPop" [labels]="countries" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        <canvas baseChart height="180px" [data]="sorted_populations" [labels]="countries_sorted_by_population" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                             </canvas>
                 </div>
                 
@@ -154,5 +140,30 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div> 
+    <div class="row">
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        ALL TESTING
+                    </div>
+                    <div class="card-body" *ngIf = "allPopCat">
+                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                </canvas>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                        <div class="card-header">
+                            Line Chart
+                        </div>
+                        <div class="card-body">
+                                <div class="card-body" *ngIf = "allGDPGrowth">
+                            <canvas baseChart height="130" [datasets]="allGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                        </div>
+                    </div>
+            </div>
+        </div>    
 </div>
+</div>>

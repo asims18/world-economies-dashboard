@@ -24,6 +24,7 @@ export class ChartsComponent implements OnInit {
     testing: any;
     public years:any [];
     public countries:any [];
+    public categories: any[];
 
     public totGDP:any [];
     public filtGDP:number [];
@@ -59,6 +60,16 @@ export class ChartsComponent implements OnInit {
 
     // Added by Asim
     public countries_sorted_by_gdp:any [];
+    public countries_sorted_by_gdpppp:any [];
+    public countries_sorted_by_population:any [];
+    public sorted_gdps:any [];
+    public sorted_gdpppps:any [];
+    public sorted_populations:any [];
+    
+
+    public allPopCat: any[];
+    public allGDPGrowth: any[];
+    public totGDPGrowth:any[];
     
     
     selectAll(event) {
@@ -85,21 +96,62 @@ export class ChartsComponent implements OnInit {
           
         
       }
-    
-    public anotherTest(testarr: string []): string []{ 
-        var testing = [];
+      public getAllPopReg():any[]{
+          var retTotPop = new Array();
+          var catTotPop = new Array();
+          var tot: number = 0;
 
-        testing.push("hello");
-        //console.log(testing);
-        //console.log(testarr);
-        return testing;}
+          for(var a = 0; a < this.totPop[0].length; a++){
+                for(var b = 0; b < this.totPop.length; b++){
+                        for(var c = 0; c < this.totPop[b][a].length; c++){              
+                                tot = tot + Number(this.totPop[b][a][c]);
+                        }
+                catTotPop.push(tot);
+                
+                }
+                retTotPop.push({data: catTotPop, label: this.categories[a]})
+                catTotPop = [];
+    }
+        return retTotPop;
+      }
+
+      //formats the datasest dep
+      public getDatasetByYear(totArr: any []):any[]{
+        var retTotArr = new Array();
+        var catTotArr = new Array();
+        var tot: number = 0;
+        
+       
+        
+      
+
+        for(var a = 0; a < totArr[0].length; a++){
+          console.log("ROUND")
+              for(var b = 0; b < totArr.length; b++){
+                  
+                      for(var c = 0; c < totArr[b][a].length; c++){              
+                              tot = tot + Number(totArr[b][a][c]);
+                      }
+              console.log("tot: ", tot, "label: ",this.categories[a]);
+              catTotArr.push(tot);
+              
+              }
+              retTotArr.push({data: catTotArr, label: this.categories[a]})
+              catTotArr = [];
+  }
+      return retTotArr;
+    }
+    
+
     public onOpen(){
         this.display="block";
     }
     public onClose(){
         this.display="none";
     }
+
     selectedFile: File = null;
+
     constructor(private http: HttpClient, private _charts :ChartsService){
         this.gdpPieChartLabels = this.countries;
        
@@ -123,7 +175,7 @@ export class ChartsComponent implements OnInit {
                 {country:'Russia', selected: false},
                 {country:'India', selected: false},
                 {country:'China', selected: false}]
-            }/*,
+            },
             {
                 category: 'MIST',
                 countries: ['Mexico','Indonesia','South Korea','Turkey']
@@ -131,7 +183,7 @@ export class ChartsComponent implements OnInit {
             {
                 category: 'Tier 4',
                 countries: ['Singapore','Hong Kong','South Africa','Saudi Arabia','Nigeria']
-            }  */
+            }  
         ]
         
         
@@ -152,7 +204,13 @@ export class ChartsComponent implements OnInit {
     // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        scales:{
+        xAxes: [{
+            ticks: {
+              autoSkip: false
+            }
+          }]}
     };
     public barChartLabels: string[] = [
         '2006',
@@ -273,28 +331,48 @@ export class ChartsComponent implements OnInit {
          * assign it;
          */
     }
+    /**
+     * filtersForecasts based on the year, category and country selected
+     * @param filteredData 
+     */
     public filterForeCasts(filteredData: any) {
-       
-       console.log(filteredData);
-       var nums;
-       for(var i = 0; i < this.years.length; i++)
-       {
-           if(filteredData == this.years[i]){
-               nums = i;
-               break;
-           }
-       }
-       console.log(nums);
-       console.log(this.totConSpend[nums]);
-       this.translateArray(this.totEaseofDoingBus[nums])
-       this.filtGDP = this.translateArray(this.totGDP[nums]);
-       this.filtGDPppp = this.translateArray(this.totGDPppp[nums])
-       this.filtPop = this.translateArray(this.totPop[nums])
-       this.filtstandOfLiving = this.translateArray(this.totstandOfLiving[nums]);
-       this.filtConSpend = this.translateArray(this.totConSpend[nums]);
-       this.filtEaseofDoingBus = this.translateArray(this.totEaseofDoingBus[nums]);
-       console.log(this.filtGDP);
-       
+        console.log(filteredData);
+        var nums;
+        // Go through every year
+        for(var i = 0; i < this.years.length; i++)
+        {
+            if(filteredData == this.years[i]){
+                nums = i;
+                break;
+            }
+        }
+        //////////////////////////////////////////////////////////////////////
+        console.log('Countries: ');
+        console.log(this.countries);
+        let allCountriesOneDimension = this.countries;
+        let allGDPCopy = this.totGDP[nums];
+        let allGDPOneDimension = [].concat.apply([],allGDPCopy);
+        let allGDPPPPCopy = this.totGDPppp[nums];
+        let allGDPPPPOneDimension = [].concat.apply([],allGDPPPPCopy);
+        let allPopCopy = this.totPop[nums];
+        let allPopOneDimension = [].concat.apply([],allPopCopy);
+
+
+        // Sort each of the 3 chart values using helper function
+        this.sort_descending(allCountriesOneDimension, allGDPOneDimension,  'gdp');
+        this.sort_descending(allCountriesOneDimension, allGDPPPPOneDimension,  'gdpppp');
+        this.sort_descending(allCountriesOneDimension, allPopOneDimension,  'population');
+        //////////////////////////////////////////////////////////////////////
+        console.log(nums);
+        console.log(this.totConSpend[nums]);
+        this.translateArray(this.totEaseofDoingBus[nums])
+        this.filtGDP = this.translateArray(this.totGDP[nums]);
+        this.filtGDPppp = this.translateArray(this.totGDPppp[nums])
+        this.filtPop = this.translateArray(this.totPop[nums])
+        this.filtstandOfLiving = this.translateArray(this.totstandOfLiving[nums]);
+        this.filtConSpend = this.translateArray(this.totConSpend[nums]);
+        this.filtEaseofDoingBus = this.translateArray(this.totEaseofDoingBus[nums]);
+        console.log(this.filtGDP);
        
        // this.filtGDP = this.totGDP.filter((item) => item.year == filteredData);
     }
@@ -316,8 +394,71 @@ export class ChartsComponent implements OnInit {
         
        return pop;
     }
- 
+    /**
+     * Does sorting in descending order for the graphs
+     * @param countries A 1D array of countries
+     * @param secondary A 1D array of a parameter to sort by
+     * @param parameter_sorted_by A string of the name of the parameter to be sorted by
+     */
+    public sort_descending(countries : any[], secondary: any[], parameter_sorted_by: string){
+        let countries_obj = [];
+        for (let i = 0; i < countries.length; i++){
+            countries_obj[i] = {
+                country: countries[i],
+                secondary: secondary[i]
+            }
+        }
+        // Utilize the comparison function to compare by the secondary value
+        countries_obj.sort(this.compare_descending);
+        let countries_sorted = [];
+        let secondary_sorted = [];
+        for (let i = 0; i < countries.length; i++){
+            countries_sorted[i] = countries_obj[i].country 
+            secondary_sorted[i] =  countries_obj[i].secondary
+        }
+        if (parameter_sorted_by =='gdp'){
+            this.countries_sorted_by_gdp = countries_sorted;
+            this.sorted_gdps =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='gdpppp') {
+            this.countries_sorted_by_gdpppp = countries_sorted;
+            this.sorted_gdpppps =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='population'){
+            this.countries_sorted_by_population = countries_sorted;
+            this.sorted_populations =secondary_sorted;
 
+        }
+        else {
+            return console.log('Invalid Parameter to sort by')
+        }
+
+    }
+    // Helper functions for sorting
+    /**
+     * Compares in ascending oder
+     * @param a 
+     * @param b 
+     */
+    public compare(a,b) {
+        if (parseInt(a.secondary) < parseInt(b.secondary))
+          return -1;
+        if (parseInt(a.secondary) > parseInt(b.secondary))
+          return 1;
+        return 0;
+    }
+    /**
+     * Compares in descending order
+     * @param a 
+     * @param b 
+     */
+    public compare_descending(a,b) {
+        if (parseInt(a.secondary) > parseInt(b.secondary))
+          return -1;
+        if (parseInt(a.secondary) < parseInt(b.secondary))
+          return 1;
+        return 0;
+    }
 
 
     ngOnInit() {
@@ -325,6 +466,7 @@ export class ChartsComponent implements OnInit {
         //mapping object
         this._charts.chartsInfo().subscribe(res => { 
          //let temp_max = res['list'].map(res => res.main.temp_max);
+         let all = res['YEARS'].map(res => res);
           let allYears = res['YEARS'].map(res => res.Year);
           let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
           let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
@@ -339,6 +481,9 @@ export class ChartsComponent implements OnInit {
           let allEaseofDoBus = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.easeOfDoingBusiness)));
 
           
+          let allRealGDPGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDPGrowth)));
+          //for the other graphs
+
           
         //all the information for that one section in the JSON 
           this.totGDP = allGDP;
@@ -349,6 +494,8 @@ export class ChartsComponent implements OnInit {
           this.totPop = allPop;
           this.totConSpend = allConSpend;
           this.totstandOfLiving = allStandofLiv;
+
+          this.totGDPGrowth = allRealGDPGrowth;
     
           var k =0;
           var arr_count:string[] = new Array(6) ;
@@ -361,54 +508,29 @@ export class ChartsComponent implements OnInit {
         }
         //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
         this.countries = arr_count;
-        // this.countriesbyGDP = arr_count.sort()
+        //////////////////////////////////////////////////////////////////////////////////////////
         // Need to sort allCountries
         let allCountriesCopy = allCountries[0];
         let allCountriesOneDimension = [].concat.apply([],allCountriesCopy);
         let allGDPCopy = allGDP[0];
         let allGDPOneDimension = [].concat.apply([],allGDPCopy);
-        function compare(a,b) {
-            if (parseInt(a.gdp) < parseInt(b.gdp))
-              return -1;
-            if (parseInt(a.gdp) > parseInt(b.gdp))
-              return 1;
-            return 0;
-          }
-          
-        // countries_realgdp.sort(compare);
-        console.log(allCountriesCopy);
-        console.log(allCountriesOneDimension);
-        console.log(allGDPCopy);
-        console.log(allGDPOneDimension);
-        let countries_gdp = [];
-        for (let i = 0; i < allCountriesOneDimension.length; i++){
-            countries_gdp[i] = {
-                country: allCountriesOneDimension[i],
-                gdp: allGDPOneDimension[i]
-            }
-        }
+        let allGDPPPPCopy = allNomGDPppp[0];
+        let allGDPPPPOneDimension = [].concat.apply([],allGDPPPPCopy);
+        let allPopCopy = allPop[0];
+        let allPopOneDimension = [].concat.apply([],allPopCopy);
+
+        this.sort_descending(allCountriesOneDimension, allGDPOneDimension,  'gdp');
+        this.sort_descending(allCountriesOneDimension, allGDPPPPOneDimension,  'gdpppp');
+        this.sort_descending(allCountriesOneDimension, allPopOneDimension,  'population');
         
-        //     {
-        //         countries: allCountriesOneDimension,
-        //         gdps: allGDPOneDimension
-        //     }
-        // ]
-        console.log(countries_gdp);
-        countries_gdp.sort(compare);
-        let countries_sorted_by_gdp = [];
-        let sorted_gdps = [];
-        for (let i = 0; i < allCountriesOneDimension.length; i++){
-            countries_sorted_by_gdp[i] = countries_gdp[i].country 
-            sorted_gdps[i] =  countries_gdp[i].gdp
-        }
-        console.log(countries_sorted_by_gdp);
-        console.log(sorted_gdps);
-        console.log(this.countries);
-        this.countries_sorted_by_gdp = countries_sorted_by_gdp;
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+        this.categories = allCategories[0];
         
         this.defGDP = this.translateArray(allGDP[0]);
-        // this.filtGDP = this.defGDP;
-        this.filtGDP = sorted_gdps;
+        console.log('Def GDPS: ');
+        console.log(allGDP);
+        this.filtGDP = this.defGDP;
 
         this.defNomGDP = this.translateArray(allNomGDP[0]);
         this.filtNomGDP = this.defGDP;
@@ -429,8 +551,12 @@ export class ChartsComponent implements OnInit {
         this.defEaseofDoingBus = this.translateArray(allEaseofDoBus[0]);
         this.filtEaseofDoingBus = this.defEaseofDoingBus;
 
-        // console.log(this.totstandOfLiving[1]);
-          //this.gdpPieChartLabels = this.countries;
+        this.allPopCat = this.getAllPopReg();
+        this.allGDPGrowth = this.getDatasetByYear(this.totGDPGrowth);
+          
+          console.log(this.allPopCat);
+          console.log(this.barChartData);
+          
           
           
     })
@@ -444,6 +570,10 @@ public retrieveCountry (): number []{
 }
 
     
+}
+interface ChartLab {
+    name: any [],
+    label: string
 }
 
 
