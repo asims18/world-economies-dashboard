@@ -57,6 +57,8 @@ export class ChartsComponent implements OnInit {
     public filtEaseofDoingBus:number [];
     public defEaseofDoingBus: any[];
 
+    // Added by Asim
+    public countries_sorted_by_gdp:any [];
     
     
     selectAll(event) {
@@ -326,6 +328,7 @@ export class ChartsComponent implements OnInit {
           let allYears = res['YEARS'].map(res => res.Year);
           let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
           let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
+        //   allCountries = allCountries.sort();
 
           let allGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDP)));
           let allNomGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.nominalGDP)));
@@ -358,9 +361,54 @@ export class ChartsComponent implements OnInit {
         }
         //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
         this.countries = arr_count;
+        // this.countriesbyGDP = arr_count.sort()
+        // Need to sort allCountries
+        let allCountriesCopy = allCountries[0];
+        let allCountriesOneDimension = [].concat.apply([],allCountriesCopy);
+        let allGDPCopy = allGDP[0];
+        let allGDPOneDimension = [].concat.apply([],allGDPCopy);
+        function compare(a,b) {
+            if (parseInt(a.gdp) < parseInt(b.gdp))
+              return -1;
+            if (parseInt(a.gdp) > parseInt(b.gdp))
+              return 1;
+            return 0;
+          }
+          
+        // countries_realgdp.sort(compare);
+        console.log(allCountriesCopy);
+        console.log(allCountriesOneDimension);
+        console.log(allGDPCopy);
+        console.log(allGDPOneDimension);
+        let countries_gdp = [];
+        for (let i = 0; i < allCountriesOneDimension.length; i++){
+            countries_gdp[i] = {
+                country: allCountriesOneDimension[i],
+                gdp: allGDPOneDimension[i]
+            }
+        }
+        
+        //     {
+        //         countries: allCountriesOneDimension,
+        //         gdps: allGDPOneDimension
+        //     }
+        // ]
+        console.log(countries_gdp);
+        countries_gdp.sort(compare);
+        let countries_sorted_by_gdp = [];
+        let sorted_gdps = [];
+        for (let i = 0; i < allCountriesOneDimension.length; i++){
+            countries_sorted_by_gdp[i] = countries_gdp[i].country 
+            sorted_gdps[i] =  countries_gdp[i].gdp
+        }
+        console.log(countries_sorted_by_gdp);
+        console.log(sorted_gdps);
+        console.log(this.countries);
+        this.countries_sorted_by_gdp = countries_sorted_by_gdp;
         
         this.defGDP = this.translateArray(allGDP[0]);
-        this.filtGDP = this.defGDP;
+        // this.filtGDP = this.defGDP;
+        this.filtGDP = sorted_gdps;
 
         this.defNomGDP = this.translateArray(allNomGDP[0]);
         this.filtNomGDP = this.defGDP;
@@ -381,7 +429,7 @@ export class ChartsComponent implements OnInit {
         this.defEaseofDoingBus = this.translateArray(allEaseofDoBus[0]);
         this.filtEaseofDoingBus = this.defEaseofDoingBus;
 
-        console.log(this.totstandOfLiving[1]);
+        // console.log(this.totstandOfLiving[1]);
           //this.gdpPieChartLabels = this.countries;
           
           

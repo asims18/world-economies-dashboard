@@ -86,7 +86,7 @@
                         Real GDP
                     </div>
                     <div class="card-body" *ngIf = "filtGDP">
-                            <canvas baseChart height="180px" [data]="filtGDP" [labels]="countries" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            <canvas baseChart height="180px" [data]="filtGDP" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                                 </canvas>
                     </div>
                     
