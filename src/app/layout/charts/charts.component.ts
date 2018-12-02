@@ -24,6 +24,7 @@ export class ChartsComponent implements OnInit {
     testing: any;
     public years:any [];
     public countries:any [];
+    public categories: any[];
 
     public totGDP:any [];
     public filtGDP:number [];
@@ -58,6 +59,11 @@ export class ChartsComponent implements OnInit {
     public defEaseofDoingBus: any[];
 
     
+
+    public allPopCat: any[];
+    public allGDPGrowth: any[];
+    public totGDPGrowth:any[];
+    
     
     selectAll(event) {
         this.selects = !this.selects
@@ -83,21 +89,62 @@ export class ChartsComponent implements OnInit {
           
         
       }
-    
-    public anotherTest(testarr: string []): string []{ 
-        var testing = [];
+      public getAllPopReg():any[]{
+          var retTotPop = new Array();
+          var catTotPop = new Array();
+          var tot: number = 0;
 
-        testing.push("hello");
-        //console.log(testing);
-        //console.log(testarr);
-        return testing;}
+          for(var a = 0; a < this.totPop[0].length; a++){
+                for(var b = 0; b < this.totPop.length; b++){
+                        for(var c = 0; c < this.totPop[b][a].length; c++){              
+                                tot = tot + Number(this.totPop[b][a][c]);
+                        }
+                catTotPop.push(tot);
+                
+                }
+                retTotPop.push({data: catTotPop, label: this.categories[a]})
+                catTotPop = [];
+    }
+        return retTotPop;
+      }
+
+      //formats the datasest dep
+      public getDatasetByYear(totArr: any []):any[]{
+        var retTotArr = new Array();
+        var catTotArr = new Array();
+        var tot: number = 0;
+        
+       
+        
+      
+
+        for(var a = 0; a < totArr[0].length; a++){
+          console.log("ROUND")
+              for(var b = 0; b < totArr.length; b++){
+                  
+                      for(var c = 0; c < totArr[b][a].length; c++){              
+                              tot = tot + Number(totArr[b][a][c]);
+                      }
+              console.log("tot: ", tot, "label: ",this.categories[a]);
+              catTotArr.push(tot);
+              
+              }
+              retTotArr.push({data: catTotArr, label: this.categories[a]})
+              catTotArr = [];
+  }
+      return retTotArr;
+    }
+    
+
     public onOpen(){
         this.display="block";
     }
     public onClose(){
         this.display="none";
     }
+
     selectedFile: File = null;
+
     constructor(private http: HttpClient, private _charts :ChartsService){
         this.gdpPieChartLabels = this.countries;
        
@@ -329,6 +376,7 @@ export class ChartsComponent implements OnInit {
         //mapping object
         this._charts.chartsInfo().subscribe(res => { 
          //let temp_max = res['list'].map(res => res.main.temp_max);
+         let all = res['YEARS'].map(res => res);
           let allYears = res['YEARS'].map(res => res.Year);
           let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
           let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
@@ -342,6 +390,9 @@ export class ChartsComponent implements OnInit {
           let allEaseofDoBus = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.easeOfDoingBusiness)));
 
           
+          let allRealGDPGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDPGrowth)));
+          //for the other graphs
+
           
         //all the information for that one section in the JSON 
           this.totGDP = allGDP;
@@ -352,6 +403,8 @@ export class ChartsComponent implements OnInit {
           this.totPop = allPop;
           this.totConSpend = allConSpend;
           this.totstandOfLiving = allStandofLiv;
+
+          this.totGDPGrowth = allRealGDPGrowth;
     
           var k =0;
           var arr_count:string[] = new Array(6) ;
@@ -364,6 +417,7 @@ export class ChartsComponent implements OnInit {
         }
         //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
         this.countries = arr_count;
+        this.categories = allCategories[0];
         
         this.defGDP = this.translateArray(allGDP[0]);
         this.filtGDP = this.defGDP;
@@ -387,8 +441,12 @@ export class ChartsComponent implements OnInit {
         this.defEaseofDoingBus = this.translateArray(allEaseofDoBus[0]);
         this.filtEaseofDoingBus = this.defEaseofDoingBus;
 
-        console.log(this.totstandOfLiving[1]);
-          //this.gdpPieChartLabels = this.countries;
+        this.allPopCat = this.getAllPopReg();
+        this.allGDPGrowth = this.getDatasetByYear(this.totGDPGrowth);
+          
+          console.log(this.allPopCat);
+          console.log(this.barChartData);
+          
           
           
     })
@@ -402,6 +460,10 @@ public retrieveCountry (): number []{
 }
 
     
+}
+interface ChartLab {
+    name: any [],
+    label: string
 }
 
 
