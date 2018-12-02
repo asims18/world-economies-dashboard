@@ -121,7 +121,7 @@ export class ChartsComponent implements OnInit {
                 {country:'Russia', selected: false},
                 {country:'India', selected: false},
                 {country:'China', selected: false}]
-            }/*,
+            },
             {
                 category: 'MIST',
                 countries: ['Mexico','Indonesia','South Korea','Turkey']
@@ -129,7 +129,7 @@ export class ChartsComponent implements OnInit {
             {
                 category: 'Tier 4',
                 countries: ['Singapore','Hong Kong','South Africa','Saudi Arabia','Nigeria']
-            }  */
+            }  
         ]
         
         
@@ -150,7 +150,13 @@ export class ChartsComponent implements OnInit {
     // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        scales:{
+        xAxes: [{
+            ticks: {
+              autoSkip: false
+            }
+          }]}
     };
     public barChartLabels: string[] = [
         '2006',

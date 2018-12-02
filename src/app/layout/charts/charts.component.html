@@ -37,20 +37,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                        
-                                        
-                                        <br>
-                                        
-                                        
-                                        <h5>
-                                                <input type="checkbox" id="country" [(ngModel)] = "selects" (change)="selectAll($event);">{{types[1].category}}<br>
-                                            </h5>
-                                            <div fxLayout="row"><div *ngFor="let country of types[1].countries" >
-                                                <input type="checkbox" [(ngModel)]="country.selected">{{country.country}} 
-                                            </div>
-                                            </div>
-                                            <br>
                                 
                         </div>
                         <div class="modal-footer">
