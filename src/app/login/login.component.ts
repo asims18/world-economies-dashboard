@@ -12,8 +12,12 @@ export class LoginComponent implements OnInit {
     constructor(public router: Router) {}
 
     ngOnInit() {}
-
+    // Old onLoggedin function
+    // onLoggedin() {
+    //     localStorage.setItem('isLoggedin', 'true');
+    // }
     onLoggedin() {
+        // Need to add authorization logic
         localStorage.setItem('isLoggedin', 'true');
     }
 }
