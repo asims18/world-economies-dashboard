@@ -1,191 +1,684 @@
 {
-    "YEARS": [
-        {
-            "Year" : "2017",
-            "CATEGORIES" : [
-                {
-                    "Category" : "G7",
-                    "COUNTRIES" : [
-                        {
-                            "name" : "USA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "CANADA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "JAPAN",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        }
-                    ]
-                },
-                {
-                    "Category" : "BRIC",
-                    "COUNTRIES" : [
-                        {
-                            "name" : "BRAZIL",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "RUSSIA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "INDIA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "Year" : "2018",
-            "CATEGORIES" : [
-                {
-                    "Category" : "G7",
-                    "COUNTRIES" : [
-                        {
-                            "name" : "USA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "CANADA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "JAPAN",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        }
-                    ]
-                },
-                {
-                    "Category" : "BRIC",
-                    "COUNTRIES" : [
-                        {
-                            "name" : "BRAZIL",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "RUSSIA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        },
-                        {
-                            "name" : "INDIA",
-                            "nominalGDP": "1",
-                            "realGDP": "1",
-                            "realGDPGrowth": "1",
-                            "gdpPpp": "1",
-                            "population": "1",
-                            "populationGrowth": "1",
-                            "consumerSpending": "1",
-                            "easeOfDoingBusiness": "1",
-                            "unemployment": "1",
-                            "retailSalesGrowth": "1"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+	"YEARS": [
+		{
+			"Year": "2017",
+			"CATEGORIES": [
+				{
+					"Category": "G7",
+					"COUNTRIES": [
+						{
+							"name": "USA",
+							"nominalGDP": "19386200",
+							"realGDP": "19386200",
+							"nominalGDPGrowth": "0.023",
+							"realGDPGrowth": "0.023",
+							"gdpPpp": "19400000",
+							"population": "326",
+							"populationGrowth": "0.007",
+							"standardOfLiving": "62152",
+							"consumerSpending": "0.657",
+							"easeOfDoingBusiness": "6",
+							"unemployment": "0.043",
+							"retailSalesGrowth": "0.047"
+						},
+						{
+							"name": "Canada",
+							"nominalGDP": "1671581",
+							"realGDP": "1671581",
+							"nominalGDPGrowth": "0.03",
+							"realGDPGrowth": "0.03",
+							"gdpPpp": "1800000",
+							"population": "37",
+							"populationGrowth": "0.012",
+							"standardOfLiving": "49775",
+							"consumerSpending": "0.583",
+							"easeOfDoingBusiness": "18",
+							"unemployment": "0.063",
+							"retailSalesGrowth": "0.066"
+						},
+						{
+							"name": "Japan",
+							"nominalGDP": "4867528",
+							"realGDP": "4867528",
+							"nominalGDPGrowth": "0.017",
+							"realGDPGrowth": "0.017",
+							"gdpPpp": "5400000",
+							"population": "127",
+							"populationGrowth": "-0.002",
+							"standardOfLiving": "44426",
+							"consumerSpending": "0.558",
+							"easeOfDoingBusiness": "34",
+							"unemployment": "0.028",
+							"retailSalesGrowth": "0.005"
+						},
+						{
+							"name": "France",
+							"nominalGDP": "2629754",
+							"realGDP": "2629754",
+							"nominalGDPGrowth": "0.02",
+							"realGDPGrowth": "0.02",
+							"gdpPpp": "2800000",
+							"population": "65",
+							"populationGrowth": "0.007",
+							"standardOfLiving": "45474",
+							"consumerSpending": "0.553",
+							"easeOfDoingBusiness": "31",
+							"unemployment": "0.094",
+							"retailSalesGrowth": "0.039"
+						},
+						{
+							"name": "Germany",
+							"nominalGDP": "3753700",
+							"realGDP": "3753700",
+							"nominalGDPGrowth": "0.025",
+							"realGDPGrowth": "0.025",
+							"gdpPpp": "4100000",
+							"population": "83",
+							"populationGrowth": "0.004",
+							"standardOfLiving": "52801",
+							"consumerSpending": "0.533",
+							"easeOfDoingBusiness": "20",
+							"unemployment": "0.038",
+							"retailSalesGrowth": "0.03"
+						},
+						{
+							"name": "Italy",
+							"nominalGDP": "1972758",
+							"realGDP": "1972758",
+							"nominalGDPGrowth": "0.015",
+							"realGDPGrowth": "0.015",
+							"gdpPpp": "2300000",
+							"population": "59",
+							"populationGrowth": "-0.001",
+							"standardOfLiving": "39500",
+							"consumerSpending": "0.608",
+							"easeOfDoingBusiness": "46",
+							"unemployment": "0.112",
+							"retailSalesGrowth": "0.013"
+						},
+						{
+							"name": "UK",
+							"nominalGDP": "2673118",
+							"realGDP": "2673118",
+							"nominalGDPGrowth": "0.017",
+							"realGDPGrowth": "0.017",
+							"gdpPpp": "2900000",
+							"population": "66",
+							"populationGrowth": "0.008",
+							"standardOfLiving": "45556",
+							"consumerSpending": "0.664",
+							"easeOfDoingBusiness": "7",
+							"unemployment": "0.043",
+							"retailSalesGrowth": "0.018"
+						}
+					]
+				},
+				{
+					"Category": "BRIC",
+					"COUNTRIES": [
+						{
+							"name": "Brazil",
+							"nominalGDP": "2028441",
+							"realGDP": "2028441",
+							"nominalGDPGrowth": "0.01",
+							"realGDPGrowth": "0.01",
+							"gdpPpp": "3200000",
+							"population": "208",
+							"populationGrowth": "0.016",
+							"standardOfLiving": "16199",
+							"consumerSpending": "0.64",
+							"easeOfDoingBusiness": "125",
+							"unemployment": "0.131",
+							"retailSalesGrowth": "-0.001"
+						},
+						{
+							"name": "Russia",
+							"nominalGDP": "1531953",
+							"realGDP": "1531953",
+							"nominalGDPGrowth": "0.016",
+							"realGDPGrowth": "0.016",
+							"gdpPpp": "3900000",
+							"population": "147",
+							"populationGrowth": "-0.017",
+							"standardOfLiving": "28958",
+							"consumerSpending": "0.534",
+							"easeOfDoingBusiness": "35",
+							"unemployment": "0.055",
+							"retailSalesGrowth": "-0.002"
+						},
+						{
+							"name": "India",
+							"nominalGDP": "2624628",
+							"realGDP": "2624628",
+							"nominalGDPGrowth": "0.066",
+							"realGDPGrowth": "0.066",
+							"gdpPpp": "9500000",
+							"population": "1339",
+							"populationGrowth": "0.011",
+							"standardOfLiving": "7784",
+							"consumerSpending": "0.594",
+							"easeOfDoingBusiness": "100",
+							"unemployment": "0.038",
+							"retailSalesGrowth": "0.066"
+						},
+						{
+							"name": "China",
+							"nominalGDP": "12059889",
+							"realGDP": "12059889",
+							"nominalGDPGrowth": "0.069",
+							"realGDPGrowth": "0.069",
+							"gdpPpp": "23200000",
+							"population": "1390",
+							"populationGrowth": "0.005",
+							"standardOfLiving": "18066",
+							"consumerSpending": "0.39",
+							"easeOfDoingBusiness": "78",
+							"unemployment": "0.04",
+							"retailSalesGrowth": "0.104"
+						}
+					]
+				},
+				{
+					"Category": "MIST",
+					"COUNTRIES": [
+						{
+							"name": "Mexico",
+							"nominalGDP": "1165920",
+							"realGDP": "1165920",
+							"nominalGDPGrowth": "0.023",
+							"realGDPGrowth": "0.023",
+							"gdpPpp": "2400000",
+							"population": "129",
+							"populationGrowth": "0.056",
+							"standardOfLiving": "20617",
+							"consumerSpending": "0.663",
+							"easeOfDoingBusiness": "49",
+							"unemployment": "0.033",
+							"retailSalesGrowth": "0.011"
+						},
+						{
+							"name": "Indonesia",
+							"nominalGDP": "1012539",
+							"realGDP": "1012539",
+							"nominalGDPGrowth": "0.051",
+							"realGDPGrowth": "0.051",
+							"gdpPpp": "3300000",
+							"population": "262",
+							"populationGrowth": "0.02",
+							"standardOfLiving": "13162",
+							"consumerSpending": "0.555",
+							"easeOfDoingBusiness": "72",
+							"unemployment": "0.055",
+							"retailSalesGrowth": "0.029"
+						},
+						{
+							"name": "South Korea",
+							"nominalGDP": "1549056",
+							"realGDP": "1549056",
+							"nominalGDPGrowth": "0.031",
+							"realGDPGrowth": "0.031",
+							"gdpPpp": "2000000",
+							"population": "51",
+							"populationGrowth": "0.005",
+							"standardOfLiving": "41388",
+							"consumerSpending": "0.488",
+							"easeOfDoingBusiness": "4",
+							"unemployment": "0.037",
+							"retailSalesGrowth": "0.025"
+						},
+						{
+							"name": "Turkey",
+							"nominalGDP": "837673",
+							"realGDP": "837673",
+							"nominalGDPGrowth": "0.066",
+							"realGDPGrowth": "0.066",
+							"gdpPpp": "2100000",
+							"population": "81",
+							"populationGrowth": "0.012",
+							"standardOfLiving": "28347",
+							"consumerSpending": "0.598",
+							"easeOfDoingBusiness": "60",
+							"unemployment": "0.109",
+							"retailSalesGrowth": "0.054"
+						}
+					]
+				},
+				{
+					"Category": "Tier 4",
+					"COUNTRIES": [
+						{
+							"name": "Singapore",
+							"nominalGDP": "327460",
+							"realGDP": "327460",
+							"nominalGDPGrowth": "0.036",
+							"realGDPGrowth": "0.036",
+							"gdpPpp": "500000",
+							"population": "6",
+							"populationGrowth": "0.018",
+							"standardOfLiving": "98014",
+							"consumerSpending": "0.375",
+							"easeOfDoingBusiness": "2",
+							"unemployment": "0.022",
+							"retailSalesGrowth": "0.023"
+						},
+						{
+							"name": "Hong Kong",
+							"nominalGDP": "341316",
+							"realGDP": "341316",
+							"nominalGDPGrowth": "0.038",
+							"realGDPGrowth": "0.038",
+							"gdpPpp": "400000",
+							"population": "7",
+							"populationGrowth": "0.004",
+							"standardOfLiving": "64533",
+							"consumerSpending": "0.662",
+							"easeOfDoingBusiness": "5",
+							"unemployment": "0.031",
+							"retailSalesGrowth": "0.032"
+						},
+						{
+							"name": "Australia",
+							"nominalGDP": "1393009",
+							"realGDP": "1393009",
+							"nominalGDPGrowth": "0.022",
+							"realGDPGrowth": "0.022",
+							"gdpPpp": "1300000",
+							"population": "24",
+							"populationGrowth": "0.003",
+							"standardOfLiving": "52191",
+							"consumerSpending": "0.578",
+							"easeOfDoingBusiness": "14",
+							"unemployment": "0.056",
+							"retailSalesGrowth": "0.025"
+						},
+						{
+							"name": "South Africa",
+							"nominalGDP": "355774",
+							"realGDP": "355774",
+							"nominalGDPGrowth": "0.013",
+							"realGDPGrowth": "0.013",
+							"gdpPpp": "800000",
+							"population": "57",
+							"populationGrowth": "0.014",
+							"standardOfLiving": "13840",
+							"consumerSpending": "0.599",
+							"easeOfDoingBusiness": "82",
+							"unemployment": "0.274",
+							"retailSalesGrowth": "0.075"
+						},
+						{
+							"name": "Nigeria",
+							"nominalGDP": "394820",
+							"realGDP": "394820",
+							"nominalGDPGrowth": "0.008",
+							"realGDPGrowth": "0.008",
+							"gdpPpp": "1100000",
+							"population": "191",
+							"populationGrowth": "0.026",
+							"standardOfLiving": "6027",
+							"consumerSpending": "0.784",
+							"easeOfDoingBusiness": "145",
+							"unemployment": "0.11",
+							"retailSalesGrowth": "-0.128"
+						},
+						{
+							"name": "Saudi Arabia",
+							"nominalGDP": "678540",
+							"realGDP": "678540",
+							"nominalGDPGrowth": "0.001",
+							"realGDPGrowth": "0.001",
+							"gdpPpp": "1800000",
+							"population": "33",
+							"populationGrowth": "0.005",
+							"standardOfLiving": "55859",
+							"consumerSpending": "0.427",
+							"easeOfDoingBusiness": "92",
+							"unemployment": "0.056",
+							"retailSalesGrowth": "0.075"
+						}
+					]
+				}
+			]
+		},
+		{
+			"Year": "2016",
+			"CATEGORIES": [
+				{
+					"Category": "G7",
+					"COUNTRIES": [
+						{
+							"name": "USA",
+							"nominalGDP": "18803298",
+							"realGDP": "18821553",
+							"nominalGDPGrowth": "0.031",
+							"realGDPGrowth": "0.03",
+							"gdpPpp": "19303483",
+							"population": "318",
+							"populationGrowth": "0.025",
+							"standardOfLiving": "57400",
+							"consumerSpending": "0.657",
+							"easeOfDoingBusiness": "12",
+							"unemployment": "0.043",
+							"retailSalesGrowth": "0.047"
+						},
+						{
+							"name": "Canada",
+							"nominalGDP": "1613495",
+							"realGDP": "1618181",
+							"nominalGDPGrowth": "0.036",
+							"realGDPGrowth": "0.033",
+							"gdpPpp": "1791045",
+							"population": "36",
+							"populationGrowth": "0.028",
+							"standardOfLiving": "46400",
+							"consumerSpending": "0.583",
+							"easeOfDoingBusiness": "22",
+							"unemployment": "0.063",
+							"retailSalesGrowth": "0.066"
+						},
+						{
+							"name": "Japan",
+							"nominalGDP": "4748808",
+							"realGDP": "4744179",
+							"nominalGDPGrowth": "0.025",
+							"realGDPGrowth": "0.026",
+							"gdpPpp": "5346535",
+							"population": "125",
+							"populationGrowth": "0.016",
+							"standardOfLiving": "41300",
+							"consumerSpending": "0.559",
+							"easeOfDoingBusiness": "31",
+							"unemployment": "0.028",
+							"retailSalesGrowth": "0.006"
+						},
+						{
+							"name": "France",
+							"nominalGDP": "2593446",
+							"realGDP": "2590891",
+							"nominalGDPGrowth": "0.014",
+							"realGDPGrowth": "0.015",
+							"gdpPpp": "3660131",
+							"population": "52",
+							"populationGrowth": "0.25",
+							"standardOfLiving": "42300",
+							"consumerSpending": "0.553",
+							"easeOfDoingBusiness": "25",
+							"unemployment": "0.094",
+							"retailSalesGrowth": "0.04"
+						},
+						{
+							"name": "Germany",
+							"nominalGDP": "3680098",
+							"realGDP": "3683710",
+							"nominalGDPGrowth": "0.02",
+							"realGDPGrowth": "0.019",
+							"gdpPpp": "4179409",
+							"population": "80",
+							"populationGrowth": "0.038",
+							"standardOfLiving": "48100",
+							"consumerSpending": "0.533",
+							"easeOfDoingBusiness": "22",
+							"unemployment": "0.038",
+							"retailSalesGrowth": "0.03"
+						},
+						{
+							"name": "Italy",
+							"nominalGDP": "1953226",
+							"realGDP": "1953226",
+							"nominalGDPGrowth": "0.01",
+							"realGDPGrowth": "0.01",
+							"gdpPpp": "2277228",
+							"population": "59",
+							"populationGrowth": "0",
+							"standardOfLiving": "36800",
+							"consumerSpending": "0.608",
+							"easeOfDoingBusiness": "51",
+							"unemployment": "0.112",
+							"retailSalesGrowth": "0.013"
+						},
+						{
+							"name": "UK",
+							"nominalGDP": "2646651",
+							"realGDP": "2657175",
+							"nominalGDPGrowth": "0.01",
+							"realGDPGrowth": "0.006",
+							"gdpPpp": "2882704",
+							"population": "66",
+							"populationGrowth": "0",
+							"standardOfLiving": "42500",
+							"consumerSpending": "0.665",
+							"easeOfDoingBusiness": "14",
+							"unemployment": "0.043",
+							"retailSalesGrowth": "0.018"
+						}
+					]
+				},
+				{
+					"Category": "BRIC",
+					"COUNTRIES": [
+						{
+							"name": "Brazil",
+							"nominalGDP": "2006371",
+							"realGDP": "2002410",
+							"nominalGDPGrowth": "0.011",
+							"realGDPGrowth": "0.013",
+							"gdpPpp": "3288798",
+							"population": "200",
+							"populationGrowth": "0.04",
+							"standardOfLiving": "15200",
+							"consumerSpending": "0.64",
+							"easeOfDoingBusiness": "128",
+							"unemployment": "0.131",
+							"retailSalesGrowth": "-0.001"
+						},
+						{
+							"name": "Russia",
+							"nominalGDP": "1498976",
+							"realGDP": "1504865",
+							"nominalGDPGrowth": "0.022",
+							"realGDPGrowth": "0.018",
+							"gdpPpp": "3857567",
+							"population": "146",
+							"populationGrowth": "0.007",
+							"standardOfLiving": "26500",
+							"consumerSpending": "0.534",
+							"easeOfDoingBusiness": "39",
+							"unemployment": "0.055",
+							"retailSalesGrowth": "-0.002"
+						},
+						{
+							"name": "India",
+							"nominalGDP": "2446065",
+							"realGDP": "2450633",
+							"nominalGDPGrowth": "0.073",
+							"realGDPGrowth": "0.071",
+							"gdpPpp": "8755760",
+							"population": "1358",
+							"populationGrowth": "-0.014",
+							"standardOfLiving": "6600",
+							"consumerSpending": "0.595",
+							"easeOfDoingBusiness": "102",
+							"unemployment": "0.038",
+							"retailSalesGrowth": "0.066"
+						},
+						{
+							"name": "China",
+							"nominalGDP": "11228947",
+							"realGDP": "11228947",
+							"nominalGDPGrowth": "0.074",
+							"realGDPGrowth": "0.074",
+							"gdpPpp": "21969697",
+							"population": "1366",
+							"populationGrowth": "0.018",
+							"standardOfLiving": "15400",
+							"consumerSpending": "0.391",
+							"easeOfDoingBusiness": "80",
+							"unemployment": "0.04",
+							"retailSalesGrowth": "0.104"
+						}
+					]
+				},
+				{
+					"Category": "MIST",
+					"COUNTRIES": [
+						{
+							"name": "Mexico",
+							"nominalGDP": "1136374",
+							"realGDP": "1137483",
+							"nominalGDPGrowth": "0.026",
+							"realGDPGrowth": "0.025",
+							"gdpPpp": "2359882",
+							"population": "128",
+							"populationGrowth": "0.008",
+							"standardOfLiving": "18900",
+							"consumerSpending": "0.663",
+							"easeOfDoingBusiness": "50",
+							"unemployment": "0.033",
+							"retailSalesGrowth": "0.012"
+						},
+						{
+							"name": "Indonesia",
+							"nominalGDP": "960663",
+							"realGDP": "961575",
+							"nominalGDPGrowth": "0.054",
+							"realGDPGrowth": "0.053",
+							"gdpPpp": "3216374",
+							"population": "255",
+							"populationGrowth": "0.027",
+							"standardOfLiving": "11700",
+							"consumerSpending": "0.556",
+							"easeOfDoingBusiness": "77",
+							"unemployment": "0.055",
+							"retailSalesGrowth": "0.029"
+						},
+						{
+							"name": "South Korea",
+							"nominalGDP": "1499570",
+							"realGDP": "1499570",
+							"nominalGDPGrowth": "0.033",
+							"realGDPGrowth": "0.033",
+							"gdpPpp": "1974334",
+							"population": "50",
+							"populationGrowth": "0.02",
+							"standardOfLiving": "37700",
+							"consumerSpending": "0.489",
+							"easeOfDoingBusiness": "-1",
+							"unemployment": "0.037",
+							"retailSalesGrowth": "0.025"
+						},
+						{
+							"name": "Turkey",
+							"nominalGDP": "786547",
+							"realGDP": "786547",
+							"nominalGDPGrowth": "0.065",
+							"realGDPGrowth": "0.065",
+							"gdpPpp": "1996198",
+							"population": "80",
+							"populationGrowth": "0.013",
+							"standardOfLiving": "24900",
+							"consumerSpending": "0.598",
+							"easeOfDoingBusiness": "60",
+							"unemployment": "0.109",
+							"retailSalesGrowth": "0.055"
+						}
+					]
+				},
+				{
+					"Category": "Tier 4",
+					"COUNTRIES": [
+						{
+							"name": "Singapore",
+							"nominalGDP": "316081",
+							"realGDP": "316081",
+							"nominalGDPGrowth": "0.036",
+							"realGDPGrowth": "0.036",
+							"gdpPpp": "482625",
+							"population": "6",
+							"populationGrowth": "0",
+							"standardOfLiving": "87900",
+							"consumerSpending": "0.375",
+							"easeOfDoingBusiness": "2",
+							"unemployment": "0.022",
+							"retailSalesGrowth": "0.024"
+						},
+						{
+							"name": "Hong Kong",
+							"nominalGDP": "330412",
+							"realGDP": "329774",
+							"nominalGDPGrowth": "0.033",
+							"realGDPGrowth": "0.035",
+							"gdpPpp": "386473",
+							"population": "7",
+							"populationGrowth": "0",
+							"standardOfLiving": "58300",
+							"consumerSpending": "0.662",
+							"easeOfDoingBusiness": "-2",
+							"unemployment": "0.031",
+							"retailSalesGrowth": "0.033"
+						},
+						{
+							"name": "Australia",
+							"nominalGDP": "1363023",
+							"realGDP": "1367035",
+							"nominalGDPGrowth": "0.022",
+							"realGDPGrowth": "0.019",
+							"gdpPpp": "1331967",
+							"population": "23",
+							"populationGrowth": "0.043",
+							"standardOfLiving": "48900",
+							"consumerSpending": "0.578",
+							"easeOfDoingBusiness": "11",
+							"unemployment": "0.056",
+							"retailSalesGrowth": "0.025"
+						},
+						{
+							"name": "South Africa",
+							"nominalGDP": "353652",
+							"realGDP": "354004",
+							"nominalGDPGrowth": "0.006",
+							"realGDPGrowth": "0.005",
+							"gdpPpp": "796020",
+							"population": "57",
+							"populationGrowth": "0",
+							"standardOfLiving": "13200",
+							"consumerSpending": "0.6",
+							"easeOfDoingBusiness": "78",
+							"unemployment": "0.274",
+							"retailSalesGrowth": "0.075"
+						},
+						{
+							"name": "Nigeria",
+							"nominalGDP": "394426",
+							"realGDP": "394820",
+							"nominalGDPGrowth": "0.001",
+							"realGDPGrowth": "0",
+							"gdpPpp": "1105528",
+							"population": "190",
+							"populationGrowth": "0.005",
+							"standardOfLiving": "5900",
+							"consumerSpending": "0.785",
+							"easeOfDoingBusiness": "141",
+							"unemployment": "0.11",
+							"retailSalesGrowth": "-0.128"
+						},
+						{
+							"name": "Saudi Arabia",
+							"nominalGDP": "678540",
+							"realGDP": "680582",
+							"nominalGDPGrowth": "0",
+							"realGDPGrowth": "-0.003",
+							"gdpPpp": "1863354",
+							"population": "32",
+							"populationGrowth": "0.031",
+							"standardOfLiving": "55200",
+							"consumerSpending": "0.427",
+							"easeOfDoingBusiness": "99",
+							"unemployment": "0.056",
+							"retailSalesGrowth": "0.075"
+						}
+					]
+				}
+			]
+		}
+	]
 }
-

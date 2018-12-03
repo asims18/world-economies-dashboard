@@ -1,4 +1,10 @@
-$topnav-background-color: #222;
+// $topnav-background-color: #222;
+// $topnav-background-color: #891015;
+$topnav-background-color: #808285;
+// $topnav-background-color: #c4171e;
+// $topnav-background-color: #d71920;
+// $nav-text-color: #FFFFFF;
+$nav-text-color: #E8E8E8;
 .sidebar {
     border-radius: 0;
     position: fixed;
@@ -27,7 +33,8 @@ $topnav-background-color: #222;
             background: $topnav-background-color;
             border: 0;
             border-radius: 0;
-            color: #999;
+            // color: #999;
+            color: $nav-text-color;
             text-decoration: none;
             .fa {
                 margin-right: 10px;
@@ -59,7 +66,8 @@ $topnav-background-color: #222;
             height: 50px;
             margin-bottom: 0;
             a {
-                color: #999;
+                // color: #999;
+                color: $nav-text-color;
                 text-decoration: none;
                 font-weight: 400;
                 background: $topnav-background-color;
@@ -89,7 +97,8 @@ $topnav-background-color: #222;
                     background-color: $topnav-background-color;
                     border: 0 solid transparent;
                     a {
-                        color: #999;
+                        // color: #999;
+                        color: $nav-text-color;
                     }
                     a:hover {
                         color: #fff;
@@ -166,8 +175,12 @@ $topnav-background-color: #222;
     cursor: pointer;
     padding: 12px;
     bottom: 0;
-    color: #999;
-    background: #212529;
+
+    // color: #999;
+    color: $nav-text-color;
+    // background: #212529;
+    // background: #891015;
+    background: #808285;
     i {
         font-size: 23px;
     }
@@ -175,7 +188,8 @@ $topnav-background-color: #222;
         background: darken($topnav-background-color, 5%);
         color: #fff;
     }
-    border-top: 1px solid #999;
+    // border-top: 1px solid #999;
+    border-top: 1px solid $nav-text-color;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
