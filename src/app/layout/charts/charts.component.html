@@ -110,7 +110,7 @@
                     Standard of Living
                 </div>
                 <div class="card-body" *ngIf = "filtstandOfLiving">
-                        <canvas baseChart [data]="filtstandOfLiving" [labels]="countries" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        <canvas baseChart [data]="sorted_standard_of_living" [labels]="countries_sorted_by_standard_of_living" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                             </canvas>
                         
                 </div>
@@ -124,7 +124,7 @@
                     Significance of Consumer Spending
                 </div>
                 <div class="card-body" *ngIf = "filtConSpend">
-                        <canvas baseChart [data]="filtConSpend" [labels]="countries" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        <canvas baseChart [data]="sorted_consumer_spending" [labels]="countries_sorted_by_consumer_spending" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                             </canvas>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     Ease of Doing Business
                 </div>
                 <div class="card-body" *ngIf = "filtEaseofDoingBus">
-                        <canvas baseChart [data]="filtEaseofDoingBus" [labels]="countries" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        <canvas baseChart [data]="sorted_ease_of_doing_business" [labels]="countries_sorted_by_ease_of_doing_business" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                             </canvas>
                 </div>
             </div>

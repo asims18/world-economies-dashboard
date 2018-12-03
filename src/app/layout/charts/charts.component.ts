@@ -62,9 +62,15 @@ export class ChartsComponent implements OnInit {
     public countries_sorted_by_gdp:any [];
     public countries_sorted_by_gdpppp:any [];
     public countries_sorted_by_population:any [];
+    public countries_sorted_by_standard_of_living:any [];
+    public countries_sorted_by_consumer_spending:any [];
+    public countries_sorted_by_ease_of_doing_business:any [];
     public sorted_gdps:any [];
     public sorted_gdpppps:any [];
     public sorted_populations:any [];
+    public sorted_standard_of_living:any [];
+    public sorted_consumer_spending:any [];
+    public sorted_ease_of_doing_business:any [];
     
 
     public allPopCat: any[];
@@ -356,12 +362,21 @@ export class ChartsComponent implements OnInit {
         let allGDPPPPOneDimension = [].concat.apply([],allGDPPPPCopy);
         let allPopCopy = this.totPop[nums];
         let allPopOneDimension = [].concat.apply([],allPopCopy);
+        let allStandofLivCopy = this.totstandOfLiving[nums];
+        let allStandofLivOneDimension = [].concat.apply([],allStandofLivCopy);
+        let allConSpendCopy = this.totConSpend[nums];
+        let allConSpendOneDimension = [].concat.apply([],allConSpendCopy);
+        let allEaseofDoBusCopy = this.totEaseofDoingBus[nums];
+        let allEaseofDoBusOneDimension = [].concat.apply([],allEaseofDoBusCopy);
 
 
-        // Sort each of the 3 chart values using helper function
+        // Sort each of the 6 chart values using helper function
         this.sort_descending(allCountriesOneDimension, allGDPOneDimension,  'gdp');
         this.sort_descending(allCountriesOneDimension, allGDPPPPOneDimension,  'gdpppp');
         this.sort_descending(allCountriesOneDimension, allPopOneDimension,  'population');
+        this.sort_descending(allCountriesOneDimension, allStandofLivOneDimension,  'standard_of_living');
+        this.sort_descending(allCountriesOneDimension, allConSpendOneDimension,  'consumer_spending');
+        this.sort_descending(allCountriesOneDimension, allEaseofDoBusOneDimension,  'ease_of_doing_business');
         //////////////////////////////////////////////////////////////////////
         console.log(nums);
         console.log(this.totConSpend[nums]);
@@ -429,6 +444,20 @@ export class ChartsComponent implements OnInit {
             this.sorted_populations =secondary_sorted;
 
         }
+        else if (parameter_sorted_by =='standard_of_living') {
+            this.countries_sorted_by_standard_of_living = countries_sorted;
+            this.sorted_standard_of_living =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='consumer_spending'){
+            this.countries_sorted_by_consumer_spending = countries_sorted;
+            this.sorted_consumer_spending =secondary_sorted;
+
+        }
+        else if (parameter_sorted_by =='ease_of_doing_business'){
+            this.countries_sorted_by_ease_of_doing_business = countries_sorted;
+            this.sorted_ease_of_doing_business =secondary_sorted;
+
+        }
         else {
             return console.log('Invalid Parameter to sort by')
         }
@@ -441,9 +470,9 @@ export class ChartsComponent implements OnInit {
      * @param b 
      */
     public compare(a,b) {
-        if (parseInt(a.secondary) < parseInt(b.secondary))
+        if (parseFloat(a.secondary) < parseFloat(b.secondary))
           return -1;
-        if (parseInt(a.secondary) > parseInt(b.secondary))
+        if (parseFloat(a.secondary) > parseFloat(b.secondary))
           return 1;
         return 0;
     }
@@ -453,9 +482,9 @@ export class ChartsComponent implements OnInit {
      * @param b 
      */
     public compare_descending(a,b) {
-        if (parseInt(a.secondary) > parseInt(b.secondary))
+        if (parseFloat(a.secondary) > parseFloat(b.secondary))
           return -1;
-        if (parseInt(a.secondary) < parseInt(b.secondary))
+        if (parseFloat(a.secondary) < parseFloat(b.secondary))
           return 1;
         return 0;
     }
@@ -518,10 +547,19 @@ export class ChartsComponent implements OnInit {
         let allGDPPPPOneDimension = [].concat.apply([],allGDPPPPCopy);
         let allPopCopy = allPop[0];
         let allPopOneDimension = [].concat.apply([],allPopCopy);
+        let allStandofLivCopy = allStandofLiv[0];
+        let allStandofLivOneDimension = [].concat.apply([],allStandofLivCopy);
+        let allConSpendCopy = allConSpend[0];
+        let allConSpendOneDimension = [].concat.apply([],allConSpendCopy);
+        let allEaseofDoBusCopy = allEaseofDoBus[0];
+        let allEaseofDoBusOneDimension = [].concat.apply([],allEaseofDoBusCopy);
 
         this.sort_descending(allCountriesOneDimension, allGDPOneDimension,  'gdp');
         this.sort_descending(allCountriesOneDimension, allGDPPPPOneDimension,  'gdpppp');
         this.sort_descending(allCountriesOneDimension, allPopOneDimension,  'population');
+        this.sort_descending(allCountriesOneDimension, allStandofLivOneDimension,  'standard_of_living');
+        this.sort_descending(allCountriesOneDimension, allConSpendOneDimension,  'consumer_spending');
+        this.sort_descending(allCountriesOneDimension, allEaseofDoBusOneDimension,  'ease_of_doing_business');
         
         //////////////////////////////////////////////////////////////////////////////////////////
 
