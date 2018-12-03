@@ -163,21 +163,25 @@ export class ChartsComponent implements OnInit {
 
     public downloadAll(event): boolean {
         event.preventDefault();
+
         var zip = new JSZip();
 
-        var fldr = zip.folder("Dashboard-Charts");
+        let pageTitle = document.getElementsByClassName("page-header")[0].textContent;
 
-        var length = document.getElementsByTagName('canvas').length;
+        var fldr = zip.folder(pageTitle);
+
+        var length = document.getElementsByTagName('canvas').length; 
 
         for (var i = 0; i < length; i++) {
             try {throw i}
             catch (ii) {
-                let x = document.getElementsByTagName('canvas')[ii];
-                x.toBlob(function(blobpng) {
-                    fldr.file("chart-image" + ii + ".png", blobpng, {base64: true});
+                let chart = document.getElementsByTagName('canvas')[ii];
+                chart.toBlob(function(blobpng) {
+                    var chartName = chart.offsetParent.firstChild.textContent;
+                    fldr.file(chartName + ".png", blobpng, {base64: true});
                     if (ii == length-1) {
                         zip.generateAsync({type: "blob"}).then(blob => {
-                            saveAs(blob, "Dashboard-Charts.zip");
+                            saveAs(blob, pageTitle + ".zip");
                         });
                     }
                 }, "image/png", 0.75);
