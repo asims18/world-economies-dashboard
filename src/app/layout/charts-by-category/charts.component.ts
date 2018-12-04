@@ -20,9 +20,26 @@ export class ChartsComponent implements OnInit {
     vals: string;
     name: any;
     testing: any;
-    public years:any [];
-    public countries:any [];
+    public years: any[];
+    public countries: any[];
+    public countriesByRegion: any[];
+    public categories: any[];
     
+    public g7RealGDPGrowth: any[];
+    public bricRealGDPGrowth: any[];
+    public mistRealGDPGrowth: any[];
+    public tier4RealGDPGrowth: any[];
+
+    public g7Population: any[];
+    public bricPopulation: any[];
+    public mistPopulation: any[];
+    public tier4Population: any[];
+
+    public totPop: any[];
+    public allGDPGrowth: any[];
+    public totGDPGrowth: any[];
+
+
     public anotherTest(testarr: string []): string [] { 
         var testing = [];
         testing.push("hello");
@@ -63,7 +80,7 @@ export class ChartsComponent implements OnInit {
                 {country:'Russia', selected: false},
                 {country:'India', selected: false},
                 {country:'China', selected: false}]
-            }/*,
+            },
             {
                 category: 'MIST',
                 countries: ['Mexico','Indonesia','South Korea','Turkey']
@@ -71,14 +88,11 @@ export class ChartsComponent implements OnInit {
             {
                 category: 'Tier 4',
                 countries: ['Singapore','Hong Kong','South Africa','Saudi Arabia','Nigeria']
-            }  */
+            }
         ]
-        
-        
     }
 
     public FileSelected(event) {
-        console.log(event);
         this.selectedFile = event.target.files[0];
     }
 
@@ -91,6 +105,39 @@ export class ChartsComponent implements OnInit {
         //{console.log(res)}) 
     }
     
+    // formats the country dataset by year
+    public getDatasetByYear(totArr: any [], rgn: any): any[] {
+        var retTotArr = new Array();
+        var ctryTotArr = new Array();
+
+        for (var ctry = 0; ctry < totArr[0][rgn].length; ctry++) {
+            for (var yr = 0; yr < totArr.length; yr++) {
+                ctryTotArr.push(totArr[yr][rgn][ctry]);
+            }
+
+            retTotArr.push({data: ctryTotArr, label: this.countriesByRegion[0][rgn][ctry]});
+            ctryTotArr = [];
+        }
+
+        return retTotArr;
+    }
+
+    public getAllPopReg(rgn: any): any[] {
+        var retTotPop = new Array();
+        var ctryTotPop = new Array();
+      
+        for (var ctry = 0; ctry < this.totPop[0][rgn].length; ctry++) {
+            for (var yr = 0; yr < this.totPop.length; yr++) {
+                ctryTotPop.push(this.totPop[yr][rgn][ctry]);
+            }
+
+            retTotPop.push({data: ctryTotPop, label: this.countriesByRegion[0][rgn][ctry]});
+            ctryTotPop = [];
+        }
+
+        return retTotPop;
+    }
+
     // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -106,6 +153,7 @@ export class ChartsComponent implements OnInit {
         '2011',
         '2012'
     ];
+
     public barChartType: string = 'bar';
     public barChartLegend: boolean = true;
 
@@ -119,10 +167,9 @@ export class ChartsComponent implements OnInit {
     public gdppieChartData: string[] ;
     
     //public gdpPieChartLabels: string [];
-     
     //public gdpPieChartLabels  =  this.countries.map(x => x);
    
-    // Pie
+    // pie
     public pieChartLabels: string[] = [
         'Download Sales',
         'In-Store Sales',
@@ -152,13 +199,12 @@ export class ChartsComponent implements OnInit {
 
     public lineChartOptions: any = {
         responsive: true,
-
     };
 
     public lineChartColors: Array<any> = [
         {
             // grey
-            //backgroundColor: 'rgba(148,159,177,0.2)',
+            // backgroundColor: 'rgba(148,159,177,0.2)',
             borderColor: 'rgba(148,159,177,1)',
             pointBackgroundColor: 'rgba(148,159,177,1)',
             pointBorderColor: '#fff',
@@ -169,7 +215,7 @@ export class ChartsComponent implements OnInit {
         },
         {
             // dark grey
-            //backgroundColor: 'rgba(77,83,96,0.2)',
+            // backgroundColor: 'rgba(77,83,96,0.2)',
             borderColor: 'rgba(77,83,96,1)',
             pointBackgroundColor: 'rgba(77,83,96,1)',
             pointBorderColor: '#fff',
@@ -179,7 +225,7 @@ export class ChartsComponent implements OnInit {
         },
         {
             // grey
-            //backgroundColor: 'rgba(148,159,177,0.2)',
+            // backgroundColor: 'rgba(148,159,177,0.2)',
             borderColor: 'rgba(148,159,177,1)',
             pointBackgroundColor: 'rgba(148,159,177,1)',
             pointBorderColor: '#fff',
@@ -212,24 +258,11 @@ export class ChartsComponent implements OnInit {
             Math.random() * 100,
             40
         ];
+
         const clone = JSON.parse(JSON.stringify(this.barChartData));
         clone[0].data = data;
         this.barChartData = clone;
-        /**
-         * (My guess), for Angular to recognize the change in the dataset
-         * it has to change the dataset variable directly,
-         * so one way around it, is to clone the data, change it and then
-         * assign it;
-         */
     }
-
-    /*public filterForeCasts(filteredData: any) {
-        if (filteredData == "0")
-            this.forecasts = this.cacheForecasts;
-        else
-        this.forecasts = this.cacheForecasts.filter((item) => item.summary == filteredData);
-    }
-} */
 
     public test(enter: string []): void { this.countries = enter; }
 
@@ -240,32 +273,45 @@ export class ChartsComponent implements OnInit {
             let allYears = res['YEARS'].map(res => res.Year);
             let allCategories = res['YEARS'].map(res => res['CATEGORIES'].map(res => res.Category));
             let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
-            let allGDP = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDP)));
-            console.log(allCountries)
-            //console.log(temp_max)
-            console.log(res)
-            this.years = allYears;
-            
-            var k =0;
-            var arr_count:string[] = new Array(6) ;
-            //debugger;
-            for(var i = 0; i < allCountries[0].length; i++){
-                for(var j = 0; j < allCountries[0][i].length; j++){
+            let allPop = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.population)));
+            let allRealGDPGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDPGrowth)));
+
+            this.years = allYears.sort();
+            this.categories = allCategories[0];
+            this.countriesByRegion = allCountries;
+            this.totPop = allPop;
+            this.totGDPGrowth = allRealGDPGrowth;
+
+            var k=0;
+            var arr_count:string[] = new Array(6);
+
+            for (var i = 0; i < allCountries[0].length; i++) {
+                for( var j = 0; j < allCountries[0][i].length; j++) {
                     arr_count[k]= allCountries[0][i][j];
                     k++;
                 }       
             }
+
             //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
             this.countries = arr_count;
-                //this.gdpPieChartLabels = this.countries;
-                console.log(this.countries);
-        })
 
-        console.log(this.countries);
+            //this.gdpPieChartLabels = this.countries;
+
+            this.g7RealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 0);
+            this.g7Population = this.getAllPopReg(0);
+
+            this.bricRealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 1);
+            this.bricPopulation = this.getAllPopReg(1);
+
+            this.mistRealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 2);
+            this.mistPopulation = this.getAllPopReg(2);
+
+            this.tier4RealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 3);
+            this.tier4Population = this.getAllPopReg(3);
+        })
     }
 
-    public retrieveCountry (): string []{
-        //console.log(this.countries);
+    public retrieveCountry (): string [] {
         return this.countries;
     }
 }
