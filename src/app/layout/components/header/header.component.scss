@@ -1,16 +1,39 @@
-$topnav-background-color: #222;
+// $topnav-background-color: #222;
+$topnav-background-color: #808285;
+$topnav-background-color: #c4171e;
+// $topnav-background-color: #000000;
+$nav-text-color: #E8E8E8;
 :host {
     .navbar {
         background-color: $topnav-background-color;
         .navbar-brand {
             color: #fff;
+            
         }
         .nav-item > a {
-            color: #999;
+            // color: #999;
+            color: $nav-text-color;
             &:hover {
                 color: #fff;
             }
         }
+        input[type="file"] {
+            display: none;
+            // display: block;
+        }
+        #upload-btn {
+            margin-bottom: 0%;
+            // margin-right: 1%;
+            margin-right: 8px;
+        }
+        .nav-item{
+            // Eliminate overlapping
+            .dropdown-menu-right{
+                top: 45px !important;
+            }
+        }
+        
+        
     }
     .messages {
         width: 300px;

@@ -1,0 +1,162 @@
+
+<div [@routerTransition]>
+    <app-page-header [heading]="'Economic Regions'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <h3>G7 Nations</h3>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP YOY Growth 
+                </div>
+                <div class="card-body" *ngIf="g7RealGDPGrowth">
+                        <canvas baseChart height="130" [datasets]="g7RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    CPI YOY Change
+                </div>
+                <div class="card-body">
+                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Population
+                </div>
+                <div class="card-body" *ngIf="g7Population">
+                        <canvas baseChart height="130" [datasets]="g7Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>BRIC Nations</h3>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP YOY Growth 
+                </div>
+                <div class="card-body" *ngIf="bricRealGDPGrowth">
+                        <canvas baseChart height="130" [datasets]="bricRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    CPI YOY Change
+                </div>
+                <div class="card-body">
+                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Population
+                </div>
+                <div class="card-body" *ngIf="bricPopulation">
+                        <canvas baseChart height="130" [datasets]="bricPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>MIST Nations</h3>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP YOY Growth 
+                </div>
+                <div class="card-body" *ngIf="mistRealGDPGrowth">
+                        <canvas baseChart height="130" [datasets]="mistRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    CPI YOY Change
+                </div>
+                <div class="card-body">
+                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Population
+                </div>
+                <div class="card-body" *ngIf="mistPopulation">
+                        <canvas baseChart height="130" [datasets]="mistPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Tier 4 Nations</h3>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP YOY Growth 
+                </div>
+                <div class="card-body" *ngIf="tier4RealGDPGrowth">
+                        <canvas baseChart height="130" [datasets]="tier4RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    CPI YOY Change
+                </div>
+                <div class="card-body">
+                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Population
+                </div>
+                <div class="card-body" *ngIf="tier4Population">
+                        <canvas baseChart height="130" [datasets]="tier4Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

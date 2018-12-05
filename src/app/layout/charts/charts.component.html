@@ -1,33 +1,127 @@
+
 <div [@routerTransition]>
+<<<<<<< HEAD
     <app-page-header id="header" [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
     <div id="downloadbtn" class="row"> 
         <div class="col">
             <a href="#" (click)="downloadAll($event)"><button class="btn btn-info btn-sm" >Download All</button></a>
         </div>
     </div>
+=======
+    <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <!-- Need to space properly-->
+>>>>>>> filter
+    <div class="row">
+            <label class=".col-lg-3 .col-md-3" for="sel1">Year:</label>
+            <div class="form-group">
+                    <select (change)="filterForeCasts($event.target.value)" class="form-control" id="sel1" > 
+                            <option *ngFor="let yr of years" >{{yr}}</option>
+                    </select>
+                </div>
+               <!-- Button trigger modal -->
+               <button type="button" class="btn btn-outline-primary .col-lg-3 .col-md-3" data-toggle="modal" (click)="onOpen()">
+                    Filter
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p class="modal-title"> hello</p>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                                
+                                
+                                <div *ngFor="let type of types" >
+                                        <h5 >
+                                            <input type="checkbox" id="country" [(ngModel)] = "type.select" [ngModelOptions]="{standalone: true}" (change)="selectAll($event);">{{type.category}}<br>
+                                        </h5>
+                                        <div fxLayout="row">
+                                            <div *ngFor="let country of type.countries" >
+                                            <input type="checkbox" [(ngModel)]="country.selected">{{country.country}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click)="onClose()" >Close</button>
+                          <button type="button" class="btn btn-primary">Apply</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        <div></div>
+
+        <!-- <input type="file"  value="Browse" class="btn form-control-file .col-lg-3 .col-md-3 " id="exampleFormControlFile1">
+        <button class="btn btn-outline-primary .col-lg-3 .col-md-3 " (click)=onUpload()>Upload</button> -->
+        
+        <!-- <h1>Test</h1> -->
+        
+        <!-- <label class=".col-2 .col-sm-1 .col-md-1 .col-lg-1 .col-xl-1" for="sel1">Year:</label> -->
+        
+
+        <!-- div class="form-group">
+                <select (change)="filterForeCasts($event.target.value)" class="form-control" id="sel1" > 
+                        <option *ngFor="let yr of years" >{{yr}}</option>
+                </select>
+            </div -->
+       
+              
+    </div>
+    
+    <div class="row">
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Real GDP
+                    </div>
+                    <div class="card-body" *ngIf = "filtGDP">
+                            <canvas baseChart height="180px" [data]="sorted_gdps" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                </canvas>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        GDP PPP
+                    </div>
+                    <div class="card-body" *ngIf = "filtGDPppp">
+                            <canvas baseChart height="180px" [data]="sorted_gdpppps" [labels]="countries_sorted_by_gdpppp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     <div class="row">
         <div class="col col-sm-6">
             <div class="card mb-3">
-                <div class="card-header">
-                    Bar Chart
+                <div class="card-header" >
+                    Population
                 </div>
-                <div class="card-body">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                <div class="card-body" *ngIf = "filtPop">
+                        <canvas baseChart height="180px" [data]="sorted_populations" [labels]="countries_sorted_by_population" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
-                </div>
+                
             </div>
         </div>
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Doughnut Chart
+                    Standard of Living
                 </div>
-                <div class="card-body">
-                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                <div class="card-body" *ngIf = "filtstandOfLiving">
+                        <canvas baseChart [data]="sorted_standard_of_living" [labels]="countries_sorted_by_standard_of_living" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                        
                 </div>
             </div>
         </div>
@@ -36,48 +130,49 @@
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Radar Chart
+                    Significance of Consumer Spending
                 </div>
-                <div class="card-body">
-                    <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                <div class="card-body" *ngIf = "filtConSpend">
+                        <canvas baseChart [data]="sorted_consumer_spending" [labels]="countries_sorted_by_consumer_spending" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
                 </div>
             </div>
         </div>
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Pie Chart
+                    Ease of Doing Business
                 </div>
-                <div class="card-body">
-                    <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                <div class="card-body" *ngIf = "filtEaseofDoingBus">
+                        <canvas baseChart [data]="sorted_ease_of_doing_business" [labels]="countries_sorted_by_ease_of_doing_business" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="row">
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Polar Area Chart
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        ALL TESTING
+                    </div>
+                    <div class="card-body" *ngIf = "allPopCat">
+                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                </canvas>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
+                
+                <div class="card mb-3">
+                        <div class="card-header">
+                            Line Chart
+                        </div>
+                        <div class="card-body">
+                                <div class="card-body" *ngIf = "allGDPGrowth">
+                            <canvas baseChart height="130" [datasets]="allGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                        </div>
+                    </div>
             </div>
-        </div>
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Line Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+        </div>    
 </div>
+</div>>
