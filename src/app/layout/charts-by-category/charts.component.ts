@@ -20,25 +20,40 @@ export class ChartsComponent implements OnInit {
     vals: string;
     name: any;
     testing: any;
+
     public years: any[];
     public countries: any[];
     public countriesByRegion: any[];
     public categories: any[];
     
     public g7RealGDPGrowth: any[];
-    public bricRealGDPGrowth: any[];
-    public mistRealGDPGrowth: any[];
-    public tier4RealGDPGrowth: any[];
-
+    public g7CPI: any[];
     public g7Population: any[];
+    public g7Unemployment: any[];
+    public g7RetailSalesGrowth: any[];
+
+    public bricRealGDPGrowth: any[];
+    public bricCPI: any[];
     public bricPopulation: any[];
+    public bricUnemployment: any[];
+    public bricRetailSalesGrowth: any[];
+
+    public mistRealGDPGrowth: any[];
+    public mistCPI: any[];
     public mistPopulation: any[];
+    public mistUnemployment: any[];
+    public mistRetailSalesGrowth: any[];
+
+    public tier4RealGDPGrowth: any[];
+    public tier4CPI: any[];
     public tier4Population: any[];
+    public tier4Unemployment: any[];
+    public tier4RetailSalesGrowth: any[];
 
     public totPop: any[];
-    public allGDPGrowth: any[];
     public totGDPGrowth: any[];
-
+    public totUnemployment: any[];
+    public totRetailSalesGrowth: any[];
 
     public anotherTest(testarr: string []): string [] { 
         var testing = [];
@@ -112,7 +127,7 @@ export class ChartsComponent implements OnInit {
 
         for (var ctry = 0; ctry < totArr[0][rgn].length; ctry++) {
             for (var yr = 0; yr < totArr.length; yr++) {
-                ctryTotArr.push(totArr[yr][rgn][ctry]);
+                ctryTotArr.push(totArr[yr][rgn][ctry] * 100);
             }
 
             retTotArr.push({data: ctryTotArr, label: this.countriesByRegion[0][rgn][ctry]});
@@ -120,22 +135,6 @@ export class ChartsComponent implements OnInit {
         }
 
         return retTotArr;
-    }
-
-    public getAllPopReg(rgn: any): any[] {
-        var retTotPop = new Array();
-        var ctryTotPop = new Array();
-      
-        for (var ctry = 0; ctry < this.totPop[0][rgn].length; ctry++) {
-            for (var yr = 0; yr < this.totPop.length; yr++) {
-                ctryTotPop.push(this.totPop[yr][rgn][ctry]);
-            }
-
-            retTotPop.push({data: ctryTotPop, label: this.countriesByRegion[0][rgn][ctry]});
-            ctryTotPop = [];
-        }
-
-        return retTotPop;
     }
 
     // base bar chart
@@ -275,12 +274,16 @@ export class ChartsComponent implements OnInit {
             let allCountries = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.name)));
             let allPop = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.population)));
             let allRealGDPGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDPGrowth)));
+            let allUnemployment = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.unemployment)));
+            let allRetailSalesGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.retailSalesGrowth)));
 
             this.years = allYears.sort();
             this.categories = allCategories[0];
             this.countriesByRegion = allCountries;
             this.totPop = allPop;
             this.totGDPGrowth = allRealGDPGrowth;
+            this.totUnemployment = allUnemployment;
+            this.totRetailSalesGrowth = allRetailSalesGrowth;
 
             var k=0;
             var arr_count:string[] = new Array(6);
@@ -298,16 +301,24 @@ export class ChartsComponent implements OnInit {
             //this.gdpPieChartLabels = this.countries;
 
             this.g7RealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 0);
-            this.g7Population = this.getAllPopReg(0);
+            this.g7Population = this.getDatasetByYear(this.totPop, 0);
+            this.g7Unemployment = this.getDatasetByYear(this.totUnemployment, 0);
+            this.g7RetailSalesGrowth = this.getDatasetByYear(this.totRetailSalesGrowth, 0);
 
             this.bricRealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 1);
-            this.bricPopulation = this.getAllPopReg(1);
+            this.bricPopulation = this.getDatasetByYear(this.totPop, 1);
+            this.bricUnemployment = this.getDatasetByYear(this.totUnemployment, 1);
+            this.bricRetailSalesGrowth = this.getDatasetByYear(this.totRetailSalesGrowth, 2);
 
             this.mistRealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 2);
-            this.mistPopulation = this.getAllPopReg(2);
+            this.mistPopulation = this.getDatasetByYear(this.totPop, 2);
+            this.mistUnemployment = this.getDatasetByYear(this.totUnemployment, 2);
+            this.mistRetailSalesGrowth = this.getDatasetByYear(this.totRetailSalesGrowth, 2);
 
             this.tier4RealGDPGrowth = this.getDatasetByYear(this.totGDPGrowth, 3);
-            this.tier4Population = this.getAllPopReg(3);
+            this.tier4Population = this.getDatasetByYear(this.totPop, 3);
+            this.tier4Unemployment = this.getDatasetByYear(this.totUnemployment, 3);
+            this.tier4RetailSalesGrowth = this.getDatasetByYear(this.totRetailSalesGrowth, 3);
         })
     }
 
