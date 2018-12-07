@@ -1,5 +1,5 @@
 # SB Admin rewritten in Angular7 and Bootstrap 4
-#Alliance Data World Economies Dashboard
+# Alliance Data World Economies Dashboard
 
 This is a Economic dashboard created for Alliance Data which shows the economic trends at a global and regional level
 
