@@ -1,6 +1,11 @@
 
 <div [@routerTransition]>
     <app-page-header [heading]="'Economic Regions'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="row">
+        <div> 
+            <a href="#" (click)="downloadAll($event)"><button class="btn btn-info btn-sm">Download All</button></a>
+        </div>
+    </div>
     <h3>G7 Nations</h3>
     <div class="row">
         <div class="col col-sm-6">
@@ -9,21 +14,19 @@
                     Real GDP YOY Growth 
                 </div>
                 <div class="card-body" *ngIf="g7RealGDPGrowth">
-                        <canvas baseChart height="130" [datasets]="g7RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                        </canvas>
+                    <canvas baseChart height="130" [datasets]="g7RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
                     CPI YOY Change
                 </div>
                 <div class="card-body">
-                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                        </canvas>
+                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -35,8 +38,32 @@
                     Population
                 </div>
                 <div class="card-body" *ngIf="g7Population">
-                        <canvas baseChart height="130" [datasets]="g7Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="g7Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Unemployment
+                </div>
+                <div class="card-body" *ngIf="g7Unemployment">
+                    <canvas baseChart height="130" [datasets]="g7Unemployment" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Retail Sales Growth
+                </div>
+                <div class="card-body" *ngIf="g7RetailSalesGrowth">
+                    <canvas baseChart height="130" [datasets]="g7RetailSalesGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -50,8 +77,8 @@
                     Real GDP YOY Growth 
                 </div>
                 <div class="card-body" *ngIf="bricRealGDPGrowth">
-                        <canvas baseChart height="130" [datasets]="bricRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="bricRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -61,7 +88,7 @@
                     CPI YOY Change
                 </div>
                 <div class="card-body">
-                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
             </div>
@@ -74,8 +101,32 @@
                     Population
                 </div>
                 <div class="card-body" *ngIf="bricPopulation">
-                        <canvas baseChart height="130" [datasets]="bricPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="bricPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Unemployment
+                </div>
+                <div class="card-body" *ngIf="bricUnemployment">
+                    <canvas baseChart height="130" [datasets]="bricUnemployment" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Retail Sales Growth
+                </div>
+                <div class="card-body" *ngIf="bricRetailSalesGrowth">
+                    <canvas baseChart height="130" [datasets]="bricRetailSalesGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -89,8 +140,8 @@
                     Real GDP YOY Growth 
                 </div>
                 <div class="card-body" *ngIf="mistRealGDPGrowth">
-                        <canvas baseChart height="130" [datasets]="mistRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="mistRealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -100,7 +151,7 @@
                     CPI YOY Change
                 </div>
                 <div class="card-body">
-                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
             </div>
@@ -113,8 +164,32 @@
                     Population
                 </div>
                 <div class="card-body" *ngIf="mistPopulation">
-                        <canvas baseChart height="130" [datasets]="mistPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="mistPopulation" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Unemployment
+                </div>
+                <div class="card-body" *ngIf="mistUnemployment">
+                    <canvas baseChart height="130" [datasets]="mistUnemployment" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Retail Sales Growth
+                </div>
+                <div class="card-body" *ngIf="mistRetailSalesGrowth">
+                    <canvas baseChart height="130" [datasets]="mistRetailSalesGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -128,8 +203,8 @@
                     Real GDP YOY Growth 
                 </div>
                 <div class="card-body" *ngIf="tier4RealGDPGrowth">
-                        <canvas baseChart height="130" [datasets]="tier4RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="tier4RealGDPGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -139,7 +214,7 @@
                     CPI YOY Change
                 </div>
                 <div class="card-body">
-                        <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
             </div>
@@ -152,11 +227,34 @@
                     Population
                 </div>
                 <div class="card-body" *ngIf="tier4Population">
-                        <canvas baseChart height="130" [datasets]="tier4Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                            </canvas>
+                    <canvas baseChart height="130" [datasets]="tier4Population" [labels]="years" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Unemployment
+                </div>
+                <div class="card-body" *ngIf="tier4Unemployment">
+                    <canvas baseChart height="130" [datasets]="tier4Unemployment" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Retail Sales Growth
+                </div>
+                <div class="card-body" *ngIf="tier4RetailSalesGrowth">
+                    <canvas baseChart height="130" [datasets]="tier4RetailSalesGrowth" [labels]="years" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
