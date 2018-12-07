@@ -1,5 +1,7 @@
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import * as JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 import { HttpClient } from '@angular/common/http';
 import { ChartsService } from './charts.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -264,6 +266,39 @@ export class ChartsComponent implements OnInit {
     }
 
     public test(enter: string []): void { this.countries = enter; }
+
+    public downloadAll(event): boolean {
+        event.preventDefault();
+
+        var zip = new JSZip();
+
+        let pageTitle = document.getElementsByClassName("page-header")[0].textContent;
+
+        var fldr = zip.folder(pageTitle);
+
+        var length = document.getElementsByTagName('canvas').length; 
+        console.log("Length: " + length);
+
+        for (var i = 0; i < length; i++) {
+            try {throw i}
+            catch (ii) {
+                let chart = document.getElementsByTagName('canvas')[ii];
+                let regions = document.getElementsByTagName('h3');
+                let regionName = regions[Math.floor(ii/5)].innerText; //assuming each region will only have 5 charts
+                chart.toBlob(function(blobpng) {
+                    var chartName = chart.offsetParent.firstChild.textContent;
+                    fldr.file(regionName + "-" + chartName + ".png", blobpng, {base64: true});
+                    if (ii == length-1) {
+                        zip.generateAsync({type: "blob"}).then(blob => {
+                            saveAs(blob, pageTitle + ".zip");
+                        });
+                    }
+                }, "image/png", 0.75);
+            }
+        } 
+
+        return false;
+    }
 
     ngOnInit() {
         this.selects=false
