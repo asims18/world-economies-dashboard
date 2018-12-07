@@ -1,3 +1,4 @@
+$topnav-background-color: #c4171e;
 input[type=file] {
 size: 5px;
 display: inline-block;
@@ -12,4 +13,17 @@ button{
 option{
     margin: 5px;
     font-size: 10px;
+}
+.btn-info,
+ {
+    background-color: $topnav-background-color;
+    border-color: $topnav-background-color;
+    padding: 0.625rem 0.75rem;
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited,
+.btn-info:focus{
+    background: darken($topnav-background-color, 5%);
+    border-color: darken($topnav-background-color, 5%);
 }

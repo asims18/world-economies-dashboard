@@ -1,3 +1,7 @@
+// $topnav-background-color: #222;
+// $topnav-background-color: #808285;
+$topnav-background-color: #c4171e;
+// $topnav-background-color: #000000;
 input[type=file] {
 size: 5px;
 display: inline-block;
@@ -23,3 +27,32 @@ label {
     margin-bottom: 10px;
     margin-top: 10px;
 }
+.btn-info,
+ {
+    background-color: $topnav-background-color;
+    border-color: $topnav-background-color;
+    padding: 0.625rem 0.75rem;
+    // margin: 10px;
+    // margin-bottom: 0%;
+
+    // margin-right: 1%;
+    // margin-right: 8px;
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited,
+.btn-info:focus{
+    background: darken($topnav-background-color, 5%);
+    border-color: darken($topnav-background-color, 5%);
+}
+// #downloadButton,
+// #downloadButton:hover,
+// #downloadButton:active,
+// #downloadButton:visited,
+// #downloadButton:focus {
+//     background-color: $topnav-background-color;
+//     // background-color: #8064A2;
+//     border-color: #8064A2;
+//     background-color: #17a2b8;
+//     border-color: #17a2b8;
+// }
