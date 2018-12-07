@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { ChartsService } from './charts.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import 'rxjs/add/operator/map';
+// import { ChartModule } from 'angular2-chartjs';
+// import 'chartjs-plugin-labels';
 
 
 
@@ -74,6 +76,7 @@ export class ChartsComponent implements OnInit {
     public sorted_standard_of_living:any [];
     public sorted_consumer_spending:any [];
     public sorted_ease_of_doing_business:any [];
+    // public displayLabels:any;
     
 
     public allPopCat: any[];
@@ -208,8 +211,32 @@ export class ChartsComponent implements OnInit {
         //this.http.post('',fd).subscribe(res => 
         //{console.log(res)}) 
     }
-    
-
+    // public displayLabels: any = {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    public displayLabels: any = {
+        plugins: {
+            labels: {
+                render: 'label'
+            }
+        }
+    };
+    // public displayLabels: any = {
+    //     scaleShowVerticalLines: false,
+    //     responsive: true,
+    //     scales:{
+    //     xAxes: [{
+    //         ticks: {
+    //           autoSkip: false
+    //         }
+    //       }]}
+    // };
     // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -571,6 +598,36 @@ export class ChartsComponent implements OnInit {
         //function testing(arr_count: string []): string[]{ this.countries  = arr_count; return arr_count;}
         this.countries = arr_count;
         //////////////////////////////////////////////////////////////////////////////////////////
+        // this.displayLabels = {
+        //     plugins: {
+        //         labels: [
+        //             {
+        //                 render: 'label',
+        //                 position: 'outside'
+        //             },
+        //             {
+        //                 render: 'percentage'
+        //             }
+        //         ]
+        //     }
+        // }
+        // Works
+        // this.displayLabels = {
+        //     plugins: {
+        //         labels: {
+        //             render: 'label'
+        //         }
+        //     }
+        // }
+        // this.displayLabels = {
+        //     scales: {
+        //         yAxes: [{
+        //             ticks: {
+        //                 beginAtZero:true
+        //             }
+        //         }]
+        //     }
+        // }
         // Need to sort allCountries
         let allCountriesCopy = allCountries[0];
         let allCountriesOneDimension = [].concat.apply([],allCountriesCopy);
