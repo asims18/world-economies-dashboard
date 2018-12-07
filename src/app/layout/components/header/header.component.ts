@@ -301,6 +301,18 @@ export class HeaderComponent implements OnInit {
 
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
+        localStorage.removeItem('adminView');
+    }
+    isLoggedIn(){
+        // console.log(localStorage.getItem('isLoggedin'));
+        // if (localStorage.getItem('isLoggedin')){
+        //     return true;
+        // }
+        // return false;
+        if (localStorage.getItem('adminView')){
+            return true;
+        }
+        return false;
     }
 
     changeLang(language: string) {

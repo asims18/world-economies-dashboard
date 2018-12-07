@@ -64,32 +64,60 @@
        
               
     </div>
-    
+    <!-- For testing Only-->
     <div class="row">
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Real GDP
-                    </div>
-                    <div class="card-body" *ngIf = "filtGDP">
-                            <canvas baseChart height="180px" [data]="sorted_gdps" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                                </canvas>
-                    </div>
-                    
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP
                 </div>
+                <div class="card-body" *ngIf = "filtGDP">
+                        <canvas baseChart height="180px" [data]="sorted_gdps" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" [options]="displayLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+                
             </div>
-            <div class="col col-sm-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        GDP PPP
-                    </div>
-                    <div class="card-body" *ngIf = "filtGDPppp">
-                            <canvas baseChart height="180px" [data]="sorted_gdpppps" [labels]="countries_sorted_by_gdpppp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                                </canvas>
-                    </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    GDP PPP
+                </div>
+                <div class="card-body" *ngIf = "filtGDPppp">
+                        <canvas baseChart height="180px" [data]="sorted_gdpppps" [labels]="countries_sorted_by_gdpppp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- End of testing -->
+
+
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Real GDP
+                </div>
+                <div class="card-body" *ngIf = "filtGDP">
+                        <canvas baseChart height="180px" [data]="sorted_gdps" [labels]="countries_sorted_by_gdp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    GDP PPP
+                </div>
+                <div class="card-body" *ngIf = "filtGDPppp">
+                        <canvas baseChart height="180px" [data]="sorted_gdpppps" [labels]="countries_sorted_by_gdpppp" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="row">
         <div class="col col-sm-6">
@@ -148,7 +176,7 @@
                         ALL TESTING
                     </div>
                     <div class="card-body" *ngIf = "allPopCat">
-                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" [options]="displayLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                                 </canvas>
                     </div>
                 </div>
