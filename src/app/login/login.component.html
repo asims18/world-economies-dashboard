@@ -2,15 +2,15 @@
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
-            <h1>SB Admin BS4 Angular5</h1>
+            <h1>World Economies Dashboard</h1>
             <form role="form" >
                 <div class="form-content">
                     <div class="form-group">
-                        <input name="username"  [(ngModel)]="username" [value]="username" type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input name="username"  [(ngModel)]="username" type="text" class="form-control input-underline input-lg" id="" placeholder="Username">
                     </div>
 
                     <div class="form-group">
-                        <input name="password" [(ngModel)]="password" [value]="password" type="text"  class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input name="password" [(ngModel)]="password"  type="password"  class="form-control input-underline input-lg" id="" placeholder="Password">
                     </div>
                     <!-- <p>First name value: {{ first.value }}</p>
                     <p>First name valid: {{ first.valid }}</p>
@@ -21,8 +21,8 @@
                 </div>
                 <a class="btn rounded-btn" [routerLink]="['/charts']" (click)="onLoggedin()"> Log in </a>
                 &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
-                <button (click)="onSubmit()" type="submit" class ="btn rounded-btn">Submit</button>
+                <!-- <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a> -->
+                <!-- <button (click)="onSubmit()" type="submit" class ="btn rounded-btn">Submit</button> -->
             </form>
         </div>
     </div>

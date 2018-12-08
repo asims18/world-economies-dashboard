@@ -1,3 +1,8 @@
+/**
+ * This file is for node js server configurations
+ * Author: Asim Siddiqui
+ */
+
 // Server File
 const http = require('http');
 const app = require('../server/app');

@@ -93,7 +93,10 @@
                 </div>
             </li> -->
             <li class="nav-item dropdown" ngbDropdown>
-                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                <a *ngIf="!isLoggedIn()" href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> Plain Jane <b class="caret"></b>
+                </a>
+                <a *ngIf="isLoggedIn()" href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user"></i> Jeffry Buchmiller <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>

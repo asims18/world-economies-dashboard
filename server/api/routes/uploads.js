@@ -1,22 +1,33 @@
+/**
+ * This file handles the express routes to node js server
+ * Note that this file isn't used in the final project
+ * Author: Asim Siddiqui
+ */
+
+// Dependencies
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
 const UploadsController = require('../controllers/uploads');
 
-// Handles storing the file
+// Handles storing the file using multer
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './uploads/');
     },
     filename: function(req, file, cb) {
         currentDate = new Date();
-        
         // cb(null, currentDate.getMonth() + '-' + currentDate.getDate() + '-' +  currentDate.getFullYear() + '-' + file.originalname );
         cb(null, file.originalname );
     }
 });
 
-// Filters a file if it is not a csv
+/**
+ * Filters a file to see if its a csv
+ * @param {*} req The fileFilter request obejct
+ * @param {*} file The file being passed
+ * @param {*} cb  The callback function
+ */
 const fileFilter = (req, file, cb) => {
     // reject a file
     if (file.mimetype === 'text/csv') {
@@ -37,7 +48,8 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-// Handles the different routes
+// Handles the different routes using the controller functions
+// CRUD methods
 router.get("/", UploadsController.uploads_get_all);
 
 router.post("/", upload.single('csv'), UploadsController.uploads_create_upload);

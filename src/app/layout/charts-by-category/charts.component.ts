@@ -142,7 +142,14 @@ export class ChartsComponent implements OnInit {
     // base bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
     };
 
     public barChartLabels: string[] = [
@@ -156,7 +163,7 @@ export class ChartsComponent implements OnInit {
     ];
 
     public barChartType: string = 'bar';
-    public barChartLegend: boolean = true;
+    public barChartLegend: boolean = false;
 
     public barChartData: any[] = [
         { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },

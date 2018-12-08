@@ -1,8 +1,19 @@
-// Necessary Requirements
+/**
+ * This file is a controller to handle the uploads to node js server
+ * Note that this file isn't used in the final project
+ * Author: Asim Siddiqui
+ */
+
+// Dependencies
 const mongoose = require("mongoose");
 const Upload = require("../models/upload");
 
-// GET all uploads
+/**
+ * GET all uploads
+ * @param {*} req The GET all uploads request object
+ * @param {*} res The GET all uploads response object
+ * @param {*} next Executes the next middleware
+ */
 exports.uploads_get_all = (req, res, next) => {
     Upload
         .find()
@@ -40,9 +51,13 @@ exports.uploads_get_all = (req, res, next) => {
         });
 };
 
-// POST a single upload
+/**
+ * POST a single upload
+ * @param {*} req The POST a single upload request object
+ * @param {*} res The POST a single upload response object
+ * @param {*} next Executes the middleware after
+ */
 exports.uploads_create_upload = (req, res, next) => {
-    // console.log('Posting!!!!!');
     console.log('Next Request:')
     console.log(req);
     if (req.file.path){
@@ -81,7 +96,12 @@ exports.uploads_create_upload = (req, res, next) => {
             });
         });
 };
-// GET a single upload
+/**
+ * GET a single upload
+ * @param {*} req The GET a single upload request object
+ * @param {*} res The GET a single upload response object
+ * @param {*} next Executes the middleware after
+ */
 exports.uploads_get_upload = (req, res, next) => {
     const id = req.params.uploadId;
     Upload
@@ -110,7 +130,12 @@ exports.uploads_get_upload = (req, res, next) => {
         res.status(500).json({ error: err });
     });
 };
-
+/**
+ * PATCH a single upload
+ * @param {*} req The PATCH a single upload request object
+ * @param {*} res The PATCH a single upload response object
+ * @param {*} next Executes the middleware after
+ */
 exports.uploads_update_upload = (req, res, next) => {
     const id = req.params.uploadId;
     const updateOps = {};
@@ -136,7 +161,12 @@ exports.uploads_update_upload = (req, res, next) => {
             });
         });
 };
-
+/**
+ * DELETE a single upload
+ * @param {*} req The DELETE a single upload request object
+ * @param {*} res The DELETE a single upload response object
+ * @param {*} next Executes the middleware after
+ */
 exports.uploads_delete = (req, res, next) => {
     const id = req.params.uploadId;
     Upload

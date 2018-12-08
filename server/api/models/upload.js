@@ -1,3 +1,10 @@
+/**
+ * This file is a mongoose model of the upload object
+ * Note that this file isn't used in the final project
+ * Author: Asim Siddiqui
+ */
+
+ // Dependencies
 const mongoose = require('mongoose');
 
 const uploadSchema = mongoose.Schema({
