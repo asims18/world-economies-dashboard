@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChartsService } from './charts.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import 'rxjs/add/operator/map';
+
 // import { ChartModule } from 'angular2-chartjs';
 // import 'chartjs-plugin-labels';
 
@@ -76,7 +77,17 @@ export class ChartsComponent implements OnInit {
     public sorted_standard_of_living:any [];
     public sorted_consumer_spending:any [];
     public sorted_ease_of_doing_business:any [];
+
+    public standard_datasets: any[];
     // public displayLabels:any;
+    public dataset_options = {
+        plugins: {
+            datalabels: {
+               // hide datalabels for all datasets
+               display: false
+            }
+          }
+    }
     
 
     public allPopCat: any[];
@@ -469,6 +480,7 @@ export class ChartsComponent implements OnInit {
         
        return pop;
     }
+  
     /**
      * Does sorting in descending order for the graphs
      * @param countries A 1D array of countries
@@ -523,6 +535,139 @@ export class ChartsComponent implements OnInit {
         }
 
     }
+
+    
+    /**
+     * Does sorting in descending order for the graphs
+     * Returns a sorted labels
+     * @param countries A 1D array of countries
+     * @param secondary A 1D array of a parameter to sort by
+     * @param parameter_sorted_by A string of the name of the parameter to be sorted by
+     * @param direction A string of the name of the direction to be sorted by ascending or descending
+     */
+    public sort_countries(countries : any[], secondary: any[], parameter_sorted_by: string, direction: string){
+        let countries_obj = [];
+        for (let i = 0; i < countries.length; i++){
+            countries_obj[i] = {
+                country: countries[i],
+                secondary: secondary[i]
+            }
+        }
+        // Utilize the comparison function to compare by the secondary value
+        if (direction == 'ascending'){
+            countries_obj.sort(this.compare_descending);
+
+        }
+        else if (direction == 'descending'){
+            countries_obj.sort(this.compare);
+        }
+        else {
+            console.log('Need to provide order to sort!');
+            return;
+        }
+        // countries_obj.sort(this.compare_descending);
+        let countries_sorted = [];
+        let secondary_sorted = [];
+        for (let i = 0; i < countries.length; i++){
+            countries_sorted[i] = countries_obj[i].country 
+            secondary_sorted[i] =  countries_obj[i].secondary
+        }
+        if (parameter_sorted_by =='gdp'){
+            this.countries_sorted_by_gdp = countries_sorted;
+            this.sorted_gdps =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='gdpppp') {
+            this.countries_sorted_by_gdpppp = countries_sorted;
+            this.sorted_gdpppps =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='population'){
+            this.countries_sorted_by_population = countries_sorted;
+            this.sorted_populations =secondary_sorted;
+
+        }
+        else if (parameter_sorted_by =='standard_of_living') {
+            this.countries_sorted_by_standard_of_living = countries_sorted;
+            this.sorted_standard_of_living =secondary_sorted;
+        }
+        else if (parameter_sorted_by =='consumer_spending'){
+            this.countries_sorted_by_consumer_spending = countries_sorted;
+            this.sorted_consumer_spending =secondary_sorted;
+
+        }
+        else if (parameter_sorted_by =='ease_of_doing_business'){
+            this.countries_sorted_by_ease_of_doing_business = countries_sorted;
+            this.sorted_ease_of_doing_business =secondary_sorted;
+
+        }
+        else {
+            return console.log('Invalid Parameter to sort by')
+        }
+
+    }
+
+    // TO DO
+    // Create a dataset for every category
+    // each dataset will be of the size of total countries
+    // whatever values within the sorted array aren't of the category will be null
+    //
+
+    // Example
+    moreData = {
+        label: 'Category Name',
+        data: [100, null, null, null, null, 9.8, 3.7, null, null, null],
+        backgroundColor: 'rgba(145, 132, 20, 0.6)',
+        borderWidth: 0,
+        yAxisID: "y-axis-gravity"
+    };
+    //
+    // Group categories
+    /**
+     * Creates the datasets needed 
+     * @param countries An array of sorted countries
+     * @param secondary An array of sorted secondary value
+     * @param categories An array of all the categories
+     * @param country_category_pairings A grouping of which countries belong to which category
+     */
+    public createDatasets(countries : any[], secondary: any[], categories: any[]){
+        let dataSets = []
+        // Loops through and initializes the datasets
+        for (let i = 0; i < categories.length; i++){
+            dataSets[i] = {
+                label: categories[i].Category,
+                data: [],
+                barPercentage: 1.0,
+                categoryPercentage: 1.0,
+                barThickness: 50
+                // borderWidth: 0,
+                // yAxisID: 'years'
+            }
+        }
+        // Loops though all of the countries
+        for (let i = 0; i < countries.length; i++){
+            // loops through all datasets
+            // for (let j = 0; j < countries.length; j++){
+            //     if (dataSets[i].label = coi)
+            //     dataSet[j].data[i] =
+            // }
+            
+            // Loops through all the categeroies
+            for (let j = 0; j < categories.length; j++){
+                // Looks for the country within each category
+                // console.log(categories.find(obj => obj.Category == 'MIST'));
+                let country_object = categories[j].COUNTRIES.find( obj => obj.name == countries[i]);
+                // If it was found in the current 
+                if (typeof country_object != 'undefined'){
+                    //set the value in the appropriate dataset
+                    dataSets[j].data[i] = secondary[i];
+                }
+                
+            }
+            
+        }
+        // console.log(dataSets);
+        return dataSets;
+    }
+
     // Helper functions for sorting
     /**
      * Compares in ascending oder
@@ -573,7 +718,7 @@ export class ChartsComponent implements OnInit {
           let allRealGDPGrowth = res['YEARS'].map(res => res['CATEGORIES'].map(res => res['COUNTRIES'].map(res => res.realGDPGrowth)));
           //for the other graphs
 
-          
+          let TotesCategories = res['YEARS'].map(res => res['CATEGORIES']);
         //all the information for that one section in the JSON 
           this.totGDP = allGDP;
           this.totNomGDP = allNomGDP;
@@ -650,7 +795,9 @@ export class ChartsComponent implements OnInit {
         this.sort_descending(allCountriesOneDimension, allStandofLivOneDimension,  'standard_of_living');
         this.sort_descending(allCountriesOneDimension, allConSpendOneDimension,  'consumer_spending');
         this.sort_descending(allCountriesOneDimension, allEaseofDoBusOneDimension,  'ease_of_doing_business');
-        
+        console.log(TotesCategories);
+        this.standard_datasets = this.createDatasets(this.countries_sorted_by_standard_of_living, this.sorted_standard_of_living, TotesCategories[0]);
+        console.log(this.standard_datasets);
         //////////////////////////////////////////////////////////////////////////////////////////
 
         this.categories = allCategories[0];

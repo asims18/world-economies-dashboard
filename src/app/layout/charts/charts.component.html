@@ -8,6 +8,7 @@
                     <option *ngFor="let yr of years" >{{yr}}</option>
             </select>
         </div>
+        <!-- Button for future filtering-->
         <!-- Button trigger modal -->
         <!-- <button type="button" class="btn btn-outline-primary .col-lg-3 .col-md-3" data-toggle="modal" (click)="onOpen()">
             Filter
@@ -119,7 +120,7 @@
                     Standard of Living
                 </div>
                 <div class="card-body" *ngIf = "filtstandOfLiving">
-                        <canvas baseChart [data]="sorted_standard_of_living" [labels]="countries_sorted_by_standard_of_living" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        <canvas baseChart [datasets]="standard_datasets"  [labels]="countries_sorted_by_standard_of_living" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                             </canvas>
                         
                 </div>
@@ -150,14 +151,14 @@
             </div>
         </div>
     </div> 
-    <!-- <div class="row">
+    <div class="row">
             <div class="col col-sm-6">
                 <div class="card mb-3">
                     <div class="card-header">
                         ALL TESTING
                     </div>
                     <div class="card-body" *ngIf = "allPopCat">
-                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" [options]="displayLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                            <canvas baseChart height="130" [datasets]="allPopCat" [labels]="years" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"  (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                                 </canvas>
                     </div>
                 </div>
@@ -174,5 +175,5 @@
                     </div>
             </div>
         </div>    
-    </div> -->
+    </div>
 </div>
